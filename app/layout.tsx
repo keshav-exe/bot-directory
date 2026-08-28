@@ -1,15 +1,31 @@
+import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { cn } from "@/lib/utils";
+import { TooltipProvider } from "@/components/ui/tooltip"
+import { SiteShell } from "@/components/site-shell"
+import { site } from "@/lib/site"
+import { cn } from "@/lib/utils"
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'})
+const geist = Geist({
+  subsets: ["latin"],
+  variable: "--font-geist-sans",
+})
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-geist-mono",
 })
+
+export const metadata: Metadata = {
+  metadataBase: new URL(site.origin),
+  title: {
+    default: `${site.name} — ${site.tagline}`,
+    template: `%s — ${site.name}`,
+  },
+  description: site.description,
+}
 
 export default function RootLayout({
   children,
@@ -20,10 +36,14 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", geist.variable)}
+      className={cn("font-sans antialiased", geist.variable, fontMono.variable)}
     >
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <TooltipProvider delay={200}>
+            <SiteShell>{children}</SiteShell>
+          </TooltipProvider>
+        </ThemeProvider>
       </body>
     </html>
   )
