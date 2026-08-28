@@ -1,10 +1,12 @@
-import { templates } from "./catalog"
+import { templates as bundled } from "./catalog"
+import { templates as submitted } from "./entries"
 import type { Category, Template } from "./types"
 
 export type { Category, Template, Skill, Routine, Author } from "./types"
 export { categories, categoryLabels } from "./types"
-export { formatRecipe, blankRecipe } from "./recipe"
-export { templates }
+export { formatRecipe, blankRecipe, parseRecipe } from "./recipe"
+
+export const templates: Template[] = [...bundled, ...submitted]
 
 export function getTemplate(slug: string): Template | undefined {
   return templates.find((template) => template.slug === slug)
@@ -56,6 +58,7 @@ export function searchTemplates(query: string): Template[] {
       template.title,
       template.description,
       template.category,
+      template.author?.handle ?? "",
       ...template.plugins,
       ...template.skills.map((skill) => skill.name),
     ]

@@ -1,5 +1,6 @@
 import Link from "next/link"
 
+import { Button } from "@/components/ui/button"
 import { PageContainer } from "@/components/page-container"
 
 export default function NotFound() {
@@ -10,17 +11,20 @@ export default function NotFound() {
           This job is not listed.
         </h1>
         <p className="mt-5 max-w-[48ch] text-lg text-pretty text-muted-foreground">
-          The link may be old, or the job was never listed. Browse templates or
-          write a recipe from scratch.
-        </p>
-        <p className="mt-8 text-base/7">
+          The link may be old, or we never added it. Browse jobs, or{" "}
           <Link
-            href="/"
+            href="/write"
             className="text-foreground hover:underline hover:decoration-foreground/30 hover:underline-offset-4"
           >
-            Browse templates
-          </Link>
+            submit one
+          </Link>{" "}
+          with a pull request.
         </p>
+        <div className="mt-8">
+          <Button nativeButton={false} render={<Link href="/" />}>
+            Browse jobs
+          </Button>
+        </div>
       </PageContainer>
     </main>
   )

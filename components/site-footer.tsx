@@ -12,8 +12,8 @@ export function SiteFooter() {
             <Wordmark />
           </p>
           <p className="max-w-[40ch] text-base/7 text-pretty text-muted-foreground sm:text-sm/6">
-            {site.tagline}. Not affiliated with xAI. Share links open
-            third-party templates on x.ai.
+            {site.host}. Independent directory. Not affiliated with xAI. Share
+            links open third-party templates on x.ai. Open source on GitHub.
           </p>
         </div>
         <nav aria-label="Footer">
@@ -42,8 +42,18 @@ export function SiteFooter() {
                 href="/write"
                 className="font-normal text-muted-foreground hover:text-foreground"
               >
-                Write a recipe
+                Submit a template
               </Link>
+            </li>
+            <li>
+              <a
+                href={site.github}
+                target="_blank"
+                rel="noreferrer"
+                className="font-normal text-muted-foreground hover:text-foreground"
+              >
+                GitHub
+              </a>
             </li>
             <li>
               <a

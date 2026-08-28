@@ -9,7 +9,10 @@
     "start": "next start",
     "lint": "eslint",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "template:new": "node scripts/new-template.mjs",
+    "template:check": "node scripts/check-templates.mjs",
+    "template:sync": "node scripts/new-template.mjs --sync"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",

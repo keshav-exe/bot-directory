@@ -9,7 +9,6 @@ import { TemplateCard } from "@/components/template-card"
 import { Button } from "@/components/ui/button"
 import { site } from "@/lib/site"
 import {
-  categoryLabels,
   formatRecipe,
   getRelatedTemplates,
   getTemplate,
@@ -62,18 +61,27 @@ export default async function TemplatePage({ params }: Props) {
         </p>
         <div className="mt-8 flex flex-col gap-10 lg:grid lg:grid-cols-[minmax(0,38fr)_minmax(0,22fr)] lg:items-start lg:gap-16">
           <article className="min-w-0">
-            <p className="font-mono text-sm tracking-wide text-muted-foreground uppercase">
-              {categoryLabels[template.category]}
-            </p>
-            <h1 className="mt-4 max-w-[35ch] text-4xl font-semibold tracking-tight text-balance">
+            <h1 className="max-w-[35ch] text-4xl font-semibold tracking-tight text-balance">
               {template.name}
             </h1>
             <p className="mt-3 max-w-[40ch] text-xl text-pretty text-muted-foreground">
-              {template.title}.
+              {template.title}
             </p>
             <p className="mt-5 max-w-[56ch] text-base/7 text-pretty">
               {template.description}
             </p>
+            {template.author ? (
+              <p className="mt-4 text-base/7 text-muted-foreground sm:text-sm/6">
+                <a
+                  href={template.author.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-foreground hover:underline hover:underline-offset-4"
+                >
+                  {template.author.handle}
+                </a>
+              </p>
+            ) : null}
             <div className="mt-8 flex flex-wrap items-center gap-3">
               {template.shareUrl ? (
                 <Button
@@ -94,25 +102,6 @@ export default async function TemplatePage({ params }: Props) {
                 variant={template.shareUrl ? "outline" : "default"}
               />
             </div>
-            {template.author && template.shareUrl ? (
-              <p className="mt-4 text-base/7 text-pretty text-muted-foreground sm:text-sm/6">
-                Live template from{" "}
-                <a
-                  href={template.author.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-foreground hover:underline hover:underline-offset-4"
-                >
-                  {template.author.handle}
-                </a>
-                . The recipe below is our write-up of the job, not a dump of
-                their machine.
-              </p>
-            ) : (
-              <p className="mt-4 text-base/7 text-pretty text-muted-foreground sm:text-sm/6">
-                No public share link yet. Paste the recipe into a new bot.
-              </p>
-            )}
 
             <section className="mt-14">
               <h2 className="text-xl font-semibold text-balance">
@@ -215,14 +204,11 @@ export default async function TemplatePage({ params }: Props) {
           </article>
 
           <aside className="min-w-0 lg:sticky lg:top-20">
-            <h2 className="text-xl font-semibold text-balance">Install</h2>
+            <h2 className="text-xl font-semibold text-balance">Add this job</h2>
             <ol className="mt-4 list-decimal space-y-3 pl-5 text-base/7 text-pretty sm:text-sm/6">
               {template.shareUrl ? (
                 <>
-                  <li>
-                    Open the share link. Read the preview: name, job, skills,
-                    routines, plugins.
-                  </li>
+                  <li>Open the share link. Read the preview.</li>
                   <li>Hit Add to Grok Bot. Confirm Add to Bot.</li>
                   <li>
                     Connect plugins it asks for, then give it the first task.
@@ -250,7 +236,7 @@ export default async function TemplatePage({ params }: Props) {
                 href="/guide#install"
                 className="text-foreground hover:underline hover:decoration-foreground/30 hover:underline-offset-4"
               >
-                Full install notes
+                Install notes
               </Link>
             </p>
             {template.shareUrl ? (

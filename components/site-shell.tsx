@@ -1,5 +1,8 @@
+import { Suspense } from "react"
+
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
+import { getGitHubStars } from "@/lib/github"
 
 export function SiteShell({ children }: { children: React.ReactNode }) {
   return (
@@ -10,11 +13,18 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
       >
         Skip to content
       </a>
-      <SiteHeader />
+      <Suspense fallback={<SiteHeader />}>
+        <HeaderWithStars />
+      </Suspense>
       <div className="flex min-w-0 flex-1 flex-col" id="content">
         {children}
       </div>
       <SiteFooter />
     </div>
   )
+}
+
+async function HeaderWithStars() {
+  const stars = await getGitHubStars()
+  return <SiteHeader stars={stars} />
 }

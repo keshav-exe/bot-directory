@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation"
 import { Menu01Icon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 
+import { GitHubStars } from "@/components/github-stars"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Button, buttonVariants } from "@/components/ui/button"
 import {
@@ -22,14 +23,14 @@ import { cn } from "@/lib/utils"
 const nav = [
   { href: "/", label: "Templates" },
   { href: "/guide", label: "Guide" },
-  { href: "/write", label: "Write a recipe" },
+  { href: "/write", label: "Submit" },
 ] as const
 
-export function SiteHeader() {
+export function SiteHeader({ stars = null }: { stars?: number | null }) {
   const pathname = usePathname()
 
   return (
-    <header className="sticky top-0 z-(--z-dropdown) max-h-16 border-b border-border bg-background">
+    <header className="sticky top-0 z-(--z-dropdown) max-h-16 bg-background/90 backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-6xl items-center gap-6 px-4 sm:h-16 sm:px-6 lg:px-8">
         <div className="flex min-w-0 flex-1 items-center gap-8">
           <Link href="/" aria-label="Homepage" className="min-w-0 shrink-0">
@@ -64,8 +65,8 @@ export function SiteHeader() {
         </div>
         <div className="flex shrink-0 items-center justify-end gap-2">
           <ThemeToggle />
+          <GitHubStars stars={stars} className="max-sm:px-2.5" />
           <Button
-            variant="outline"
             size="sm"
             nativeButton={false}
             render={<a href={site.url} target="_blank" rel="noreferrer" />}
@@ -135,13 +136,26 @@ export function SiteHeader() {
                   nativeButton={false}
                   render={
                     <a
-                      href={site.url}
+                      href={site.github}
                       target="_blank"
                       rel="noreferrer"
                       className={cn(
                         buttonVariants({ variant: "outline" }),
                         "mt-6 w-full"
                       )}
+                    />
+                  }
+                >
+                  GitHub
+                </SheetClose>
+                <SheetClose
+                  nativeButton={false}
+                  render={
+                    <a
+                      href={site.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={cn(buttonVariants(), "mt-2 w-full")}
                     />
                   }
                 >
