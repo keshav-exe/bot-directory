@@ -7,7 +7,7 @@ import { site } from "@/lib/site"
 export const metadata: Metadata = {
   title: "Guide",
   description:
-    "What a Grok Bot is, what a template includes, how to install one, and how to write your own.",
+    "What a Grok Bot is, how to install a share link, and how to list one here.",
 }
 
 export default function GuidePage() {
@@ -15,7 +15,7 @@ export default function GuidePage() {
     <main>
       <PageContainer className="py-12 sm:py-16">
         <article className="prose max-w-[65ch]">
-          <h1>How templates work</h1>
+          <h1>How this directory works</h1>
           <p>
             A Grok Bot is a named job with its own chat and memory of how you
             like the work done. It has skills and routines, and it runs on a
@@ -28,22 +28,15 @@ export default function GuidePage() {
             and keep send, buy, delete, and publish behind your approval.
           </p>
 
-          <h2>What a template is</h2>
+          <h2>What a listing is</h2>
           <p>
-            A template is a copy of the setup, not of the bot. It includes the
-            name, job, selected memories, skills, routines, and which plugins it
-            needs. It strips personal data. It never includes the computer,
-            logins, or chat history.
-          </p>
-          <p>
-            Open the{" "}
+            A listing here is a public share link. Open{" "}
             <a href={site.url} target="_blank" rel="noreferrer">
               x.ai/bot/…
-            </a>{" "}
-            link, hit Add to Grok Bot, and you get a fresh copy on your account.
-            Same playbook, your machine, your approvals. That is the difference
-            from a pasted prompt: you are handing over a working job, not a
-            paragraph.
+            </a>
+            , hit Add to Grok Bot, and you get a fresh copy on your account.
+            Same playbook, your machine, your approvals. We do not rehost packed
+            configs or paste-in prompts.
           </p>
 
           <h2 id="install">How to install one</h2>
@@ -75,14 +68,14 @@ export default function GuidePage() {
           <h2 id="submit">List one on this site</h2>
           <p>
             This directory is open source. A listing is a merged pull request,
-            not a form. Write the job, publish a share link if you have one,
-            then <Link href="/write">submit the recipe</Link>.
+            not a form. Publish a share link, then{" "}
+            <Link href="/write">submit it</Link>.
           </p>
           <ol>
             <li>Fork {site.githubRepo}.</li>
             <li>
-              Run <code>pnpm template:new</code> with your recipe, category,
-              why, first task, and optional <code>x.ai/bot/…</code> link.
+              Run <code>pnpm template:new</code> with the name, category, blurb,
+              author, and <code>x.ai/bot/…</code> link.
             </li>
             <li>
               Run <code>pnpm template:check</code>, open a PR, wait for the
@@ -93,41 +86,7 @@ export default function GuidePage() {
             Leave out secrets, names, private URLs, and one-off chat residue.
             The link is public. Anyone who has it can view the shared
             configuration. We will not merge a dump of someone else&apos;s
-            machine.
-          </p>
-
-          <h2>How to write one</h2>
-          <p>
-            Get a bot good at the job, then tell it to export itself as a public
-            template. It stages a draft. You review what it packed, publish, and
-            copy the x.ai/bot/… link.
-          </p>
-          <p>
-            Writing from scratch? Paste a recipe into a new bot and say turn
-            this into a public template.{" "}
-            <Link href="/write">The fill-in recipe is here</Link>.
-          </p>
-          <p>The parts:</p>
-          <ul>
-            <li>
-              <strong>Description</strong> is the card blurb.
-            </li>
-            <li>
-              <strong>Skills</strong> are reusable jobs.
-            </li>
-            <li>
-              <strong>Routines</strong> are timed or event jobs, with fill-in
-              spots for where the work actually lives.
-            </li>
-            <li>
-              <strong>Plugins</strong> are connectors, not API keys.
-            </li>
-            <li>
-              <strong>Memory</strong> is job rules only. No personal stuff.
-            </li>
-          </ul>
-          <p>
-            Leave out secrets, names, private URLs, and one-off chat residue.
+            machine, or a scrape of prompt directories.
           </p>
 
           <h2>Keep the roster small</h2>
@@ -136,11 +95,6 @@ export default function GuidePage() {
             working style, approval boundary, or schedule. A job such as General
             Helper gives the bot less guidance and makes its saved context
             harder to reuse.
-          </p>
-          <p>
-            Put the safety in the description: never send, buy, delete, or
-            publish without approval. Use the conversation for the task in front
-            of you.
           </p>
           <p>
             More from xAI:{" "}

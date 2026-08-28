@@ -12,8 +12,8 @@ export function HomeShell() {
     <>
       <HomeIntro search={search} onSearchChange={setSearch} />
       <section>
-        <PageContainer className="pb-16 pt-2 sm:pb-20">
-          <h2 className="sr-only">Jobs</h2>
+        <PageContainer className="pt-2 pb-16 sm:pb-20">
+          <h2 className="sr-only">Templates</h2>
           <Directory search={search} onSearchChange={setSearch} />
         </PageContainer>
       </section>

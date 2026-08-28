@@ -83,7 +83,7 @@ function main() {
     }
 
     if (relative.includes("/entries/") && relative.endsWith(".ts") && !relative.endsWith("index.ts")) {
-      for (const key of ["why:", "firstTask:", "name:", "title:", "description:"]) {
+      for (const key of ["name:", "description:", "shareUrl:"]) {
         if (!source.includes(key)) {
           problems.push(`${relative}: missing ${key.slice(0, -1)}`)
         }

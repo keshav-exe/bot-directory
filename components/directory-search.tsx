@@ -28,7 +28,7 @@ export function DirectorySearch({
         name="q"
         type="search"
         value={value}
-        placeholder="Search jobs, plugins, skills"
+        placeholder="Search jobs"
         className="h-11 w-full bg-muted px-3 pl-9 text-base transition-[background-color,border-color] duration-200 ease-out hover:bg-[color-mix(in_oklch,var(--muted),var(--foreground)_4%)] md:h-10 md:text-sm"
         onChange={(event) => onChange(event.target.value)}
       />

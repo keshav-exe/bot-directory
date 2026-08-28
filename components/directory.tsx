@@ -9,6 +9,7 @@ import {
   categories,
   categoryLabels,
   searchTemplates,
+  templates,
   type Category,
 } from "@/lib/templates"
 import { cn } from "@/lib/utils"
@@ -55,38 +56,42 @@ export function Directory({
 
   return (
     <div className="flex flex-col gap-8">
-      <div className="-mx-4 overflow-x-auto px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0">
-        <div
-          className="flex w-max gap-1 sm:gap-2"
-          role="tablist"
-          aria-label="Category"
-        >
-          <FilterChip
-            pressed={category === "all"}
-            onClick={() => updateCategory("all")}
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+        <div className="-mx-4 overflow-x-auto px-4 sm:mx-0 sm:min-w-0 sm:flex-1 sm:overflow-x-auto sm:px-0">
+          <div
+            className="flex w-max gap-1 sm:gap-2"
+            role="tablist"
+            aria-label="Category"
           >
-            All
-          </FilterChip>
-          {categories.map((item) => (
             <FilterChip
-              key={item}
-              pressed={category === item}
-              onClick={() => updateCategory(item)}
+              pressed={category === "all"}
+              onClick={() => updateCategory("all")}
             >
-              {categoryLabels[item]}
+              All
             </FilterChip>
-          ))}
+            {categories.map((item) => (
+              <FilterChip
+                key={item}
+                pressed={category === item}
+                onClick={() => updateCategory(item)}
+              >
+                {categoryLabels[item]}
+              </FilterChip>
+            ))}
+          </div>
         </div>
+        <p className="shrink-0 text-base/7 text-muted-foreground tabular-nums sm:text-sm/6">
+          {results.length === templates.length
+            ? `${results.length.toLocaleString("en")} ${results.length === 1 ? "template" : "templates"}`
+            : `${results.length.toLocaleString("en")} of ${templates.length.toLocaleString("en")}`}
+        </p>
       </div>
       {results.length === 0 ? (
         <div className="flex min-h-48 flex-col justify-center gap-3 rounded-[1.75rem] bg-card px-6 py-12">
           <p className="font-medium">No jobs match</p>
           <p className="max-w-[48ch] text-base/7 text-pretty text-muted-foreground sm:text-sm/6">
             Clear the search or pick another category. Or{" "}
-            <Link
-              href="/write"
-              className="link-text"
-            >
+            <Link href="/write" className="link-text">
               submit a job
             </Link>
             .
@@ -105,18 +110,16 @@ export function Directory({
           </p>
         </div>
       ) : (
-        <div className="@container">
-          <ul
-            className="grid grid-cols-1 gap-4 @2xl:grid-cols-2"
-            role="list"
-          >
-            {results.map((template) => (
-              <li key={template.slug} className="min-w-0">
-                <TemplateCard template={template} />
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ul
+          className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3"
+          role="list"
+        >
+          {results.map((template) => (
+            <li key={template.slug} className="min-w-0">
+              <TemplateCard template={template} />
+            </li>
+          ))}
+        </ul>
       )}
     </div>
   )
@@ -138,7 +141,7 @@ function FilterChip({
       aria-selected={pressed}
       onClick={onClick}
       className={cn(
-        "surface-chip relative shrink-0 rounded-full px-3 py-1.5 text-base/7 sm:text-sm/6",
+        "relative shrink-0 surface-chip rounded-full px-3 py-1.5 text-base/7 sm:text-sm/6",
         pressed
           ? "bg-card text-foreground"
           : "text-muted-foreground hover:bg-[color-mix(in_oklch,var(--card),var(--foreground)_3%)] hover:text-foreground"

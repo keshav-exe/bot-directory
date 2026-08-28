@@ -3,7 +3,7 @@ export const site = {
   host: "grokbot.wtf",
   tagline: "Jobs for Grok Bot",
   description:
-    "Copy a job into Grok Bot. Open a share link, paste a recipe, or list yours with a pull request.",
+    "Open a Grok Bot share link, or list yours with a pull request.",
   origin: "https://grokbot.wtf",
   url: "https://x.ai/bot",
   docs: "https://docs.x.ai/grok-bot/get-started",

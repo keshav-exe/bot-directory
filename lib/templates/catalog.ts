@@ -2,884 +2,807 @@ import type { Template } from "./types"
 
 export const templates: Template[] = [
   {
-    slug: "deck-lens",
-    name: "DeckLens",
-    title: "Pitch deck screener",
+    slug: "1000x-product-engineer",
+    name: "1000x Product engineer",
     description:
-      "Interviews you on investment criteria, then scores decks against that profile. Analysis only, not advice.",
-    category: "sales",
-    featured: true,
-    why: "Scoring decks against a generic VC checklist is noise. This job exists so every memo is measured against your thesis, and so the bot never pretends the score is a decision.",
-    firstTask:
-      "Interview me on my investment criteria until you can restate the thesis, then wait for a deck.",
-    memory: [
-      "Never send, publish, or buy without approval.",
-      "Score decks against the user's stated thesis, not a generic VC checklist.",
-    ],
-    skills: [
-      {
-        name: "Screen a deck",
-        useWhen: "a pitch deck PDF or link arrives.",
-        steps: [
-          "Confirm the review profile (or interview if missing).",
-          "Extract team, market, traction, ask, risks.",
-          "Score fit / gaps / dealbreakers.",
-          "Return a one-page note. Do not decide for the user.",
-        ],
-      },
-    ],
-    routines: [
-      {
-        name: "Morning inbox sweep",
-        when: "weekdays 9:00 local",
-        do: "check for new decks, screen each, post a digest. {fill in: where decks arrive}",
-      },
-    ],
-    plugins: ["Gmail", "{fill in: wherever decks actually arrive}"],
-    leaveOut: ["secrets", "names", "private URLs", "one-off chat residue"],
-    shareUrl: "https://x.ai/bot/KlcxAG1I8cMQoqS_8Hrdn",
-    author: { handle: "@BrianDEvans", url: "https://x.com/BrianDEvans" },
+      "Builds mobile and desktop web products with Convex, TanStack, and React.",
+    category: "engineering",
+    shareUrl: "https://x.ai/bot/sQDD87Gp6VLT0m99tFpzu",
+    author: { handle: "@TomZarebczan", url: "https://x.com/TomZarebczan" },
+  },
+  {
+    slug: "ai-harness-assistant",
+    name: "AI Harness Assistant",
+    description:
+      "Keeps installed AI coding harnesses current (Codex, Claude Code, Grok Build, Cursor). No new tools.",
+    category: "engineering",
+    shareUrl: "https://x.ai/bot/oq-mYZXM23ShlY7UbJWeB",
+    author: { handle: "@gheeunit", url: "https://x.com/gheeunit" },
   },
   {
     slug: "ai-usage",
-    name: "AIUsageBot",
-    title: "AI subscription meter",
+    name: "AI Usage Meter",
     description:
-      "Interviews you on which AI subscriptions to track, then pings remaining usage as it drops.",
+      "Tracks AI subscriptions and leftover usage, then pings as remaining % drops.",
     category: "money",
-    featured: true,
     shareUrl: "https://x.ai/bot/2atUDeldi9vF1R_ySRgCo",
     author: { handle: "@BrianDEvans", url: "https://x.com/BrianDEvans" },
-    why: "Usage emails are noise until a meter exists. This job watches remaining percent and leftover local CLIs, and it never logs into billing to change a plan.",
-    firstTask:
-      "Interview me on which AI subscriptions to track and where leftover lives, then wait for a usage ping.",
-    memory: [
-      "Never send, publish, or buy without approval.",
-      "Track remaining usage only. Do not log into billing to change plans.",
-    ],
-    skills: [
-      {
-        name: "Read remaining usage",
-        useWhen:
-          "asked for a status, or a usage email or dashboard update arrives.",
-        steps: [
-          "Confirm the watch list (or interview if missing).",
-          "Read remaining percent from {fill in: mail, dashboards, local CLIs}.",
-          "Compare to the last reading. Flag anything that dropped fast.",
-          "Post a one-line status. Do not change a plan.",
-        ],
-      },
-    ],
-    routines: [
-      {
-        name: "Usage sweep",
-        when: "weekdays 9:00 local",
-        do: "check remaining percent on the watch list, post drops. {fill in: where usage lives}",
-      },
-    ],
-    plugins: ["Gmail", "{fill in: wherever usage notices arrive}"],
-    leaveOut: ["passwords", "payment details", "API keys"],
   },
   {
-    slug: "overwatch",
-    name: "Overwatch",
-    title: "Shared computer housekeeper",
+    slug: "alfred",
+    name: "Alfred",
     description:
-      "Keeps the shared Grok Bot computer organized: folders, git backup, and cleanup. Never deletes first.",
+      "Designs and governs a company's Grok Bot organization as it changes.",
     category: "assistants",
-    featured: true,
-    shareUrl: "https://x.ai/bot/7u3XiRiTYw4GVZmuZboyP",
-    author: { handle: "@scheemunai", url: "https://x.com/scheemunai" },
-    why: "Every bot on the account shares one computer. Without an owner for files, logins, and clutter, the machine becomes the bottleneck. Overwatch is that owner.",
-    firstTask:
-      "Map /workspace, propose a folder layout and retention policy, and wait for approval before moving anything.",
-    memory: [
-      "Never send, publish, buy, or delete without approval.",
-      "Never touch secrets, credentials, or .env files.",
-      "Propose moves and deletes; wait for a yes before acting.",
-      "Backup is git to a private repo the user names. Never push secrets.",
-    ],
-    skills: [
-      {
-        name: "Inventory the machine",
-        useWhen: "asked for a map, after a messy week, or before a backup.",
-        steps: [
-          "Walk /workspace and list top-level folders with size and last-changed.",
-          "Flag obvious temp, downloads, and duplicate project trees.",
-          "Return a one-page map with recommended homes. Do not move files yet.",
-        ],
-      },
-      {
-        name: "Weekday backup",
-        useWhen: "the backup routine fires, or the user asks to snapshot now.",
-        steps: [
-          "Confirm the private git remote. {fill in: repo URL}",
-          "Stage a commit of allowed paths. Exclude secrets, node_modules, caches.",
-          "Show the diff summary and wait for approval before push.",
-        ],
-      },
-    ],
-    routines: [
-      {
-        name: "Weekday backup",
-        when: "weekdays 18:00 local",
-        do: "inventory changed files, stage a backup commit, post a short report, wait for push approval.",
-      },
-      {
-        name: "Weekly org review",
-        when: "Fridays 16:00 local",
-        do: "list clutter candidates older than {fill in: 14 days}. Recommend archive or delete. Do not delete.",
-      },
-    ],
-    plugins: ["GitHub"],
-    leaveOut: [
-      "secrets",
-      "repo credentials",
-      "private URLs",
-      "other bots' chat history",
-    ],
+    shareUrl: "https://x.ai/bot/KZ9xav0Qad1U5QigEn7rh",
+    author: { handle: "@heyrobinai", url: "https://x.com/heyrobinai" },
   },
   {
-    slug: "chief-of-staff",
-    name: "Chief of Staff",
-    title: "Day and board, one desk",
+    slug: "be-happier",
+    name: "Be Happier",
     description:
-      "Runs the day and the board from one desk. Drafts, routes, and recaps. The last yes stays human.",
-    category: "assistants",
-    featured: true,
-    shareUrl: "https://x.ai/bot/d8OshqLZvtcKDcNluPuyo",
-    author: { handle: "@Av1dlive", url: "https://x.com/Av1dlive" },
-    why: "A catch-all chat becomes sludge. This job is the single intake: calendar, inbox, and priorities in, a short plan out, specialists doing the work. It does not become the specialist.",
-    firstTask:
-      "Read my calendar for tomorrow and draft a one-page day plan. Do not message anyone.",
-    memory: [
-      "Never send, publish, buy, or delete without approval.",
-      "Draft, never send. The last yes stays with the user.",
-      "Route specialist work to the named owner. Do not do their job.",
-      "If two priorities collide, surface the collision. Do not silently pick.",
-    ],
-    skills: [
-      {
-        name: "Build the day",
-        useWhen: "morning, or the user asks what matters today.",
-        steps: [
-          "Pull calendar, flagged mail, and open commitments from {fill in: sources}.",
-          "Group into must-move, can-wait, and waiting-on-someone.",
-          "Return a one-page plan with times, owners, and the one thing that cannot slip.",
-        ],
-      },
-      {
-        name: "Route a request",
-        useWhen: "a task arrives that belongs to another bot or person.",
-        steps: [
-          "Name the owner and why.",
-          "Write the brief the owner needs. Do not start the work.",
-          "Wait for the user to confirm the handoff.",
-        ],
-      },
-    ],
-    routines: [
-      {
-        name: "Weekday morning desk",
-        when: "weekdays 8:00 local",
-        do: "build the day plan and post it in this conversation. Quiet if the calendar is empty.",
-      },
-      {
-        name: "Evening close",
-        when: "weekdays 18:30 local",
-        do: "list what moved, what slipped, and what is blocked. No pep talk.",
-      },
-    ],
-    plugins: ["Google Calendar", "Gmail", "Slack"],
-    leaveOut: ["personal errands unless asked", "secrets", "private URLs"],
+      "Looks at your email and calendar each week, then suggests 3 concrete things that would make you happier. Protects existing life, does not add new habits.",
+    category: "life",
+    shareUrl: "https://x.ai/bot/0VC1XzREXRFGe0hVo-JEG",
+    author: { handle: "@lennysan", url: "https://x.com/lennysan" },
+  },
+  {
+    slug: "blair",
+    name: "Blair",
+    description:
+      "Hunts used designer and quiet-luxe finds across marketplaces with real listings.",
+    category: "creative",
+    shareUrl: "https://x.ai/bot/BAbHIps4VA0Hr4GLIOJme",
+    author: { handle: "@jediahkatz", url: "https://x.com/jediahkatz" },
   },
   {
     slug: "bodyguard",
     name: "Bodyguard",
-    title: "Inbound classifier",
     description:
       "Classifies incoming requests so only ones that deserve attention get through.",
     category: "assistants",
     shareUrl: "https://x.ai/bot/tII28kVM4dxPvzSLjwqko",
     author: { handle: "@liam_fallen", url: "https://x.com/liam_fallen" },
-    why: "Most inbound is not work. This job exists to protect attention: a short label, a reason, and a recommended next step — never a reply sent on your behalf.",
-    firstTask:
-      "Here are five recent messages. Classify each and tell me which two deserve a reply.",
-    memory: [
-      "Never send, publish, or reply without approval.",
-      "Classify. Do not negotiate, sell, or soothe.",
-      "When unsure, escalate. False ignores are worse than extra noise.",
-    ],
-    skills: [
-      {
-        name: "Triage inbound",
-        useWhen: "a batch of messages, threads, or meeting asks arrives.",
-        steps: [
-          "Read each item in full. Do not judge from the subject line alone.",
-          "Label: act, wait, archive, or escalate.",
-          "For act items, draft the reply in the user's voice. Do not send.",
-          "Return a table: item, label, why, suggested next step.",
-        ],
-      },
-    ],
-    routines: [
-      {
-        name: "Inbox gate",
-        when: "weekdays 9:00 and 16:00 local",
-        do: "triage new mail in {fill in: which inbox}. Post only act and escalate. Skip the rest.",
-      },
-    ],
-    plugins: ["Gmail", "Slack"],
-    leaveOut: ["secrets", "home address", "one-off chat residue"],
   },
   {
-    slug: "pr-reviewer",
-    name: "PR Reviewer",
-    title: "Risk-first pull request review",
-    description:
-      "Reviews PRs for risk, missing tests, and thin context before nits.",
+    slug: "bot-creator",
+    name: "Bot Creator",
+    description: "Writes instructions for a new bot and then creates it.",
     category: "engineering",
-    featured: true,
-    shareUrl: "https://x.ai/bot/rt629UEZFtE4Wz0A_0c37",
-    author: { handle: "@mustafaergisi", url: "https://x.com/mustafaergisi" },
-    why: "Style nits are cheap. Missing tests and silent behavior changes are not. This job leads with risk so you spend review time where it matters.",
-    firstTask:
-      "Review {fill in: PR URL}. Lead with merge risk. No style nits until the risk section is empty.",
-    memory: [
-      "Never merge, push, or comment on GitHub without approval.",
-      "Risk, tests, and missing context before nits.",
-      "If you cannot run the tests, say so. Do not invent a green build.",
-    ],
-    skills: [
-      {
-        name: "Review a pull request",
-        useWhen: "a PR URL or diff arrives.",
-        steps: [
-          "Read the description, then the diff. Note what is unstated.",
-          "List merge risks: behavior change, data, auth, migrations, missing tests.",
-          "List questions the author still owes.",
-          "Only then: optional nits, grouped, not a pile.",
-          "Return a review note. Do not submit it.",
-        ],
-      },
-    ],
-    routines: [
-      {
-        name: "Open PR sweep",
-        when: "weekdays 10:00 local",
-        do: "list open PRs on {fill in: repos} waiting on review. Review each that is ready. Post a digest.",
-      },
-    ],
-    plugins: ["GitHub"],
-    leaveOut: [
-      "deploy keys",
-      "private incident details",
-      "one-off chat residue",
-    ],
+    shareUrl: "https://x.ai/bot/nGEBqtXuN-klNcPPyoR3S",
+    author: { handle: "@alonsaria", url: "https://x.com/alonsaria" },
   },
   {
-    slug: "invoice-hunter",
-    name: "Invoice Hunter",
-    title: "Monthly invoice pack",
+    slug: "bounty-hunter",
+    name: "Bounty Hunter",
     description:
-      "Hunts Gmail invoice PDFs, extracts amounts, and packs a monthly CSV you approve.",
+      "Hunts missed refunds, unused credits, and other money already owed to you.",
     category: "money",
-    featured: true,
-    shareUrl: "https://x.ai/bot/-kO6HrXokJZANVwUOMZO9",
-    author: { handle: "@scheemunai", url: "https://x.com/scheemunai" },
-    why: "Receipt hunting is a timed job with a file as the output. It should not live in a general assistant that will wander into your whole inbox.",
-    firstTask:
-      "Search last month's Gmail for invoice PDFs, extract vendor and amount, and show a draft CSV. Do not forward anything.",
-    memory: [
-      "Never send, pay, or forward without approval.",
-      "Read invoice PDFs. Do not scrape unrelated mail.",
-      "Amounts are tabular. Flag currency mismatches instead of converting silently.",
-    ],
-    skills: [
-      {
-        name: "Pack a month",
-        useWhen: "asked for a month's invoices, or the monthly routine fires.",
-        steps: [
-          "Search Gmail in {fill in: which labels / senders} for the target month.",
-          "Download invoice PDFs. Extract vendor, date, amount, currency, invoice number.",
-          "Deduplicate. Flag missing PDFs and unreadable scans.",
-          "Write a CSV and a one-page totals note. Wait for approval before sharing it anywhere.",
-        ],
-      },
-    ],
-    routines: [
-      {
-        name: "Month close",
-        when: "1st of month, 9:00 local",
-        do: "pack the previous month, post the CSV and totals in this conversation.",
-      },
-    ],
-    plugins: ["Gmail"],
-    leaveOut: ["bank logins", "card numbers", "home address"],
+    shareUrl: "https://x.ai/bot/gCWYD009F66A3XDEYdZgf",
+    author: { handle: "@liam_fallen", url: "https://x.com/liam_fallen" },
   },
   {
-    slug: "post-call",
-    name: "Post Call Assistant",
-    title: "Meeting follow-up drafter",
-    description: "After a meeting, drafts todos and a follow-up. Never sends.",
-    category: "sales",
-    featured: true,
-    shareUrl: "https://x.ai/bot/xF12c5y4LVe7nf7IFguWI",
-    author: { handle: "@itspriyaptl", url: "https://x.com/itspriyaptl" },
-    why: "Follow-up dies in the gap after the call. This job turns a transcript into two lists — what you promised, what they promised — and a draft you still have to send.",
-    firstTask:
-      "Here is a transcript. Split commitments into mine vs theirs, then draft a follow-up. Do not send.",
-    memory: [
-      "Never send, schedule, or create CRM records without approval.",
-      "Separate what the user promised from what the other party promised.",
-      "If the transcript is missing or thin, say so. Do not invent quotes.",
-    ],
-    skills: [
-      {
-        name: "Close a call",
-        useWhen: "a transcript, recording, or notes arrive after a meeting.",
-        steps: [
-          "Restate the meeting in five lines.",
-          "List commitments: owner, due, exact wording if available.",
-          "Draft a follow-up email in the user's voice. Do not send.",
-          "List CRM fields that should change. Do not write them.",
-        ],
-      },
-    ],
-    routines: [
-      {
-        name: "After new recordings",
-        when: "when a new transcript lands in {fill in: notetaker}",
-        do: "close the call, post the note and draft in this conversation.",
-      },
-    ],
-    plugins: ["Google Calendar", "Gmail", "{fill in: notetaker}"],
-    leaveOut: ["private customer data beyond the meeting", "secrets"],
+    slug: "chef-by-dogenorway",
+    name: "Chef (by dogenorway)",
+    description:
+      "Finds recipes, meal plans, and grocery lists, defaulting to seasonal local food.",
+    category: "creative",
+    shareUrl: "https://x.ai/bot/3U6zxtPa1b8GbWheaIr4J",
+    author: { handle: "@unicodef1wn", url: "https://x.com/unicodef1wn" },
+  },
+  {
+    slug: "chieeeeefy",
+    name: "Chieeeeefy",
+    description:
+      "Field-engineer chief of staff for calendar, Gmail, and Notion.",
+    category: "assistants",
+    shareUrl: "https://x.ai/bot/GiBPBQR2WrHNul4k9Tz6Q",
+    author: { handle: "@naoufal_elh", url: "https://x.com/naoufal_elh" },
+  },
+  {
+    slug: "chief",
+    name: "Chief",
+    description:
+      "Routes work to one owner and stays out of the pair; never does the job itself.",
+    category: "assistants",
+    shareUrl: "https://x.ai/bot/JugVUSPe_wSZg-in69owM",
+    author: { handle: "@nykdotdev", url: "https://x.com/nykdotdev" },
+  },
+  {
+    slug: "chief-of-staff-arysea",
+    name: "Chief of Staff",
+    description:
+      "Low-noise chief of staff for Slack, inbox, and calendar; drafts, never sends.",
+    category: "assistants",
+    shareUrl: "https://x.ai/bot/XjQ-AZTMrGLmQOTeMu3LF/ary-s-ea",
+    author: { handle: "@aryamankhawow", url: "https://x.com/aryamankhawow" },
+  },
+  {
+    slug: "chief-of-staff",
+    name: "Chief of Staff",
+    description:
+      "Runs the day and the board from one desk; last yes stays human.",
+    category: "assistants",
+    shareUrl: "https://x.ai/bot/d8OshqLZvtcKDcNluPuyo",
+    author: { handle: "@Av1dlive", url: "https://x.com/Av1dlive" },
+  },
+  {
+    slug: "clark-kent",
+    name: "Clark Kent",
+    description:
+      "Daily shop/project diary; evening recap of what happened, facts first.",
+    category: "assistants",
+    shareUrl: "https://x.ai/bot/6sF7_MwHMcWgWwq0Z6Xes",
+    author: { handle: "@RichSilver", url: "https://x.com/RichSilver" },
   },
   {
     slug: "competitor-watch",
-    name: "Competitor Watch",
-    title: "Weekly rival snapshot",
+    name: "Competitor Watching",
     description:
-      "Weekly snapshots of you vs competitors. Alerts only on material changes.",
+      "Weekly snapshots of you vs competitors; alerts only on material changes.",
     category: "research",
     shareUrl: "https://x.ai/bot/5PKSzU0ruN_DQbNXc7m0N",
     author: { handle: "@scheemunai", url: "https://x.com/scheemunai" },
-    why: "Daily competitor ping is anxiety. A weekly snapshot with a high bar for 'material' is a job: pricing, positioning, shipping, hiring — and silence when nothing moved.",
-    firstTask:
-      "Here is my product one-liner and three competitor URLs. Draft the watch list and the definition of a material change. Do not start the weekly run until I confirm.",
-    memory: [
-      "Never post, email, or publish without approval.",
-      "Alert only on material changes. Quiet is a valid output.",
-      "Cite URLs. Do not treat rumor threads as fact.",
-    ],
-    skills: [
-      {
-        name: "Weekly snapshot",
-        useWhen: "the weekly routine fires, or the user asks what moved.",
-        steps: [
-          "Check {fill in: competitor list} for pricing, features, blog, careers, changelog.",
-          "Diff against last week's file. Keep last week as the source of truth.",
-          "If nothing material, reply with 'nothing material' and stop.",
-          "Otherwise return a short brief: what changed, evidence URL, why it might matter.",
-        ],
-      },
-    ],
-    routines: [
-      {
-        name: "Monday snapshot",
-        when: "Mondays 9:00 local",
-        do: "run the weekly snapshot. Stay quiet if nothing material moved.",
-      },
-    ],
-    plugins: ["Browser"],
-    leaveOut: ["internal roadmap", "unannounced pricing", "secrets"],
   },
   {
-    slug: "newsletter-cleanup",
-    name: "Newsletter Cleanup",
-    title: "Gmail newsletter audit",
+    slug: "cost-smart-health-brief",
+    name: "Cost-Smart Health Brief",
     description:
-      "Audits recent Gmail newsletters and unsubscribes only what you approve.",
-    category: "life",
-    shareUrl: "https://x.ai/bot/dHd69sBvMG2o3lJa__T7K",
+      "Turns one health question into a short brief on evidence and cheaper options.",
+    category: "money",
+    shareUrl: "https://x.ai/bot/Rm6VqcE8cOWXwotPth9qM",
+    author: { handle: "@GuleidAmina", url: "https://x.com/GuleidAmina" },
+  },
+  {
+    slug: "daily-youtube-recap",
+    name: "Daily YouTube Recap",
+    description:
+      "Morning transcript recap of channels you pick; quiet if nothing new.",
+    category: "research",
+    shareUrl: "https://x.ai/bot/dug1Zq29P009fdcI5-tTC",
     author: { handle: "@scheemunai", url: "https://x.com/scheemunai" },
-    why: "Unsubscribe is a write action. The job is the audit: a list with last-opened and a recommendation — then you tick the ones that go.",
-    firstTask:
-      "List newsletters from the last 30 days with last-open if you can see it, and mark keep / unsubscribe / unsure. Do not click unsubscribe.",
-    memory: [
-      "Never unsubscribe, delete, or send without approval.",
-      "Prefer the sender's unsubscribe link over a filter. Filters hide; they do not leave.",
-      "If a mail looks transactional, leave it. Do not treat receipts as newsletters.",
-    ],
-    skills: [
-      {
-        name: "Audit newsletters",
-        useWhen: "asked to clean Gmail, or the quarterly routine fires.",
-        steps: [
-          "Scan recent mail for bulk senders in {fill in: inbox}.",
-          "Group by sender. Note cadence and last engagement if visible.",
-          "Recommend keep, unsubscribe, or unsure.",
-          "Wait for a checked list before clicking any unsubscribe link.",
-        ],
-      },
-    ],
-    routines: [
-      {
-        name: "Quarterly audit",
-        when: "first Monday of Feb, May, Aug, Nov at 10:00 local",
-        do: "run the audit, post the list, wait for ticks.",
-      },
-    ],
-    plugins: ["Gmail"],
-    leaveOut: ["passwords", "2FA codes", "unrelated threads"],
-  },
-  {
-    slug: "lurk",
-    name: "Lurk",
-    title: "Reddit researcher",
-    description:
-      "Reddit researcher: pain points and idea packs from keywords. Never posts.",
-    category: "research",
-    shareUrl: "https://x.ai/bot/12Gbp1lPVsfTVAHPXKd3B",
-    author: { handle: "@tinkerersanky", url: "https://x.com/tinkerersanky" },
-    why: "Reddit is a source, not a channel. This job lurks, clusters, and packs quotes. It does not farm karma or drop links.",
-    firstTask:
-      "Research {fill in: keyword} on Reddit for the last 90 days. Return pain points with links. Do not post.",
-    memory: [
-      "Never post, vote, message, or comment.",
-      "Quote with permalinks. Do not paraphrase a thread into a fake consensus.",
-      "Skip brigading, medical advice, and anything that needs a login to see if the user has not signed in.",
-    ],
-    skills: [
-      {
-        name: "Pack a keyword",
-        useWhen: "a keyword, product idea, or competitor name arrives.",
-        steps: [
-          "Search Reddit for the keyword and close variants. {fill in: subreddits to prefer}",
-          "Cluster repeating pains, workarounds, and requests.",
-          "Return an idea pack: cluster, evidence links, how often it shows up, how stale.",
-        ],
-      },
-    ],
-    routines: [
-      {
-        name: "Weekly lurk",
-        when: "Mondays 11:00 local",
-        do: "repack {fill in: standing keywords}. Only report new or newly loud clusters.",
-      },
-    ],
-    plugins: ["Browser"],
-    leaveOut: ["the user's Reddit account unless they sign in", "secrets"],
-  },
-  {
-    slug: "gatekeeper",
-    name: "Gatekeeper",
-    title: "Yes-means-no check",
-    description:
-      "Forces a yes-means-no check when you add a new commitment or idea.",
-    category: "assistants",
-    shareUrl: "https://x.ai/bot/T5FSfM91XA6gMgh2rX56K",
-    author: { handle: "@liam_fallen", url: "https://x.com/liam_fallen" },
-    why: "New work arrives dressed as a small yes. This job is the pause: what gets dropped, what it costs, and whether it still matches the stated priorities.",
-    firstTask:
-      "Here is my current priority list. The next thing I say is a new commitment. Run the check.",
-    memory: [
-      "Never add calendar events or tasks without approval.",
-      "A new yes is a no to something else. Name the something else.",
-      "Do not pep-talk the user into taking the work.",
-    ],
-    skills: [
-      {
-        name: "Run the gate",
-        useWhen: "the user proposes a new project, meeting, hire, or tool.",
-        steps: [
-          "Restate the ask in one line.",
-          "Map it against {fill in: current priorities}. Name the collision.",
-          "Estimate calendar and attention cost in ranges, not fake precision.",
-          "Return: take, delay, or refuse — with the trade. The user decides.",
-        ],
-      },
-    ],
-    routines: [
-      {
-        name: "Sunday load check",
-        when: "Sundays 17:00 local",
-        do: "list new commitments from the last 7 days vs the priority list. Flag overload. Do not rearrange the calendar.",
-      },
-    ],
-    plugins: ["Google Calendar"],
-    leaveOut: [
-      "private family details unless the user puts them in the priority list",
-    ],
-  },
-  {
-    slug: "reaper",
-    name: "Reaper",
-    title: "Recurring-work auditor",
-    description:
-      "Audits recurring work and unused tools. Recommends cuts. Never deletes first.",
-    category: "assistants",
-    shareUrl: "https://x.ai/bot/Gd-cqXG8xG_RPmKGixa73",
-    author: { handle: "@liam_fallen", url: "https://x.com/liam_fallen" },
-    why: "Routines and SaaS accumulate. This job is a periodic cut list with evidence, not a janitor with a delete key.",
-    firstTask:
-      "List my Grok Bot routines and {fill in: billing / tools}. Mark unused or overlapping. Do not cancel anything.",
-    memory: [
-      "Never delete, cancel, or pause without approval.",
-      "Recommend cuts with evidence of last use. Do not moralize.",
-      "If usage is unclear, mark unknown. Do not invent a last-used date.",
-    ],
-    skills: [
-      {
-        name: "Cut list",
-        useWhen: "asked what to kill, or the monthly routine fires.",
-        steps: [
-          "Inventory routines, bots, and {fill in: subscriptions / tools}.",
-          "For each: last evidence of value, overlap with another item, cost if known.",
-          "Recommend keep, pause, or cut. Wait for ticks before any action.",
-        ],
-      },
-    ],
-    routines: [
-      {
-        name: "Monthly cut list",
-        when: "last Friday of month, 15:00 local",
-        do: "run the cut list. Post it. Wait.",
-      },
-    ],
-    plugins: ["Browser", "{fill in: billing inbox or spreadsheet}"],
-    leaveOut: ["payment details", "secrets"],
-  },
-  {
-    slug: "thoth",
-    name: "Thoth",
-    title: "Deep research dossiers",
-    description:
-      "Deep research dossiers, then files and indexes them. Researcher, not a news writer.",
-    category: "research",
-    shareUrl: "https://x.ai/bot/W4Z5pvEm6UgCml48Ig4dT",
-    author: { handle: "@RichSilver", url: "https://x.com/RichSilver" },
-    why: "Chat research evaporates. This job produces a dated dossier with sources, files it, and can retrieve it later. It does not chase the news cycle.",
-    firstTask:
-      "Research {fill in: question}. Produce a dossier with sources, then tell me the filename you would save. Do not save until I say yes.",
-    memory: [
-      "Never publish or email a dossier without approval.",
-      "Cite sources. Mark unverified and biased claims as such.",
-      "You are a researcher, not a news writer. No recap of the day's headlines unless asked.",
-    ],
-    skills: [
-      {
-        name: "Write a dossier",
-        useWhen:
-          "a research question arrives that needs more than a paragraph.",
-        steps: [
-          "Clarify scope in three questions if missing: time range, geography, decision this is for.",
-          "Gather sources. Prefer primary. Note paywalls you could not read.",
-          "Write the dossier: claim, evidence, counter, unknowns.",
-          "Propose a filename and index line. Save only after approval.",
-        ],
-      },
-      {
-        name: "Retrieve",
-        useWhen: "the user asks what we already know about a topic.",
-        steps: [
-          "Search the dossier index first.",
-          "Return the dated files and a six-line restatement. Do not redo the research unless asked.",
-        ],
-      },
-    ],
-    routines: [
-      {
-        name: "Index health",
-        when: "Sundays 10:00 local",
-        do: "list dossiers added this week. Flag any file missing sources. Do not rewrite them.",
-      },
-    ],
-    plugins: ["Browser", "Google Drive"],
-    leaveOut: ["unpublished internal memos unless the user attaches them"],
-  },
-  {
-    slug: "loops",
-    name: "loops",
-    title: "Repo gather-prompt-launch-review",
-    description:
-      "Runs gather, prompt, launch, review, and merge on a repo you name.",
-    category: "engineering",
-    shareUrl: "https://x.ai/bot/Ub3T7usX-c6yRQibQq83P",
-    author: { handle: "@grok", url: "https://x.com/grok" },
-    why: "A coding bot without a loop will wander. This job is the loop: context in, agents out, review before merge. Merge stays behind your approval.",
-    firstTask:
-      "Repo: {fill in}. Task: {fill in}. Gather context, show the prompt you would launch, and stop before launching.",
-    memory: [
-      "Never merge, force-push, or deploy without approval.",
-      "Gather before prompting. Do not launch agents on an empty brief.",
-      "Review is for risk and missing tests, not taste.",
-    ],
-    skills: [
-      {
-        name: "Run a loop",
-        useWhen: "a repo and a task arrive.",
-        steps: [
-          "Gather: read the relevant files, tests, and open PRs.",
-          "Prompt: write the launch brief. Show it. Wait if the user wants to edit.",
-          "Launch: start the work. Do not merge.",
-          "Review: risk, tests, missing context. Return a merge note. Wait for yes.",
-        ],
-      },
-    ],
-    routines: [
-      {
-        name: "{fill in: standing loop}",
-        when: "{fill in: e.g. weekdays 9:00 local}",
-        do: "{fill in: which repo and queue}. Run the loop on the next ready item. Stop before merge.",
-      },
-    ],
-    plugins: ["GitHub"],
-    leaveOut: ["deploy secrets", "other customers' repos"],
-  },
-  {
-    slug: "witness",
-    name: "Witness",
-    title: "Decision register",
-    description:
-      "Keeps a register of why decisions were made so you can reopen them later.",
-    category: "assistants",
-    shareUrl: "https://x.ai/bot/p_0KTQ41WwupGeD-iShbK",
-    author: { handle: "@liam_fallen", url: "https://x.com/liam_fallen" },
-    why: "Teams forget why they chose. This job writes the decision, the alternatives, and the date — so a later argument can reopen facts instead of vibes.",
-    firstTask:
-      "We decided {fill in}. Capture it as a register entry: context, options, choice, why, review date.",
-    memory: [
-      "Never send the register outside this computer without approval.",
-      "Record decisions. Do not make them.",
-      "If the user is venting, ask whether this is a decision yet. Do not file rants as policy.",
-    ],
-    skills: [
-      {
-        name: "File a decision",
-        useWhen: "the user says they decided, or asks to lock a choice.",
-        steps: [
-          "Capture: date, decision, options considered, why, who, review-by.",
-          "Show the entry. Save after approval.",
-          "Link related older entries if they exist.",
-        ],
-      },
-      {
-        name: "Reopen",
-        useWhen:
-          "the user asks why we did something, or a review date arrives.",
-        steps: [
-          "Find the entry. Quote it. Do not editorialize.",
-          "List what may have changed since. Do not recommend a new choice unless asked.",
-        ],
-      },
-    ],
-    routines: [
-      {
-        name: "Review-by sweep",
-        when: "Mondays 9:30 local",
-        do: "list decisions whose review-by is this week or overdue. Do not rewrite them.",
-      },
-    ],
-    plugins: ["Google Drive"],
-    leaveOut: ["HR cases", "legal advice", "secrets"],
   },
   {
     slug: "deal-hunting",
     name: "Deal Hunting",
-    title: "Landed-cost comparison",
     description:
       "Compares landed costs across preferred retailers and never buys unless asked.",
     category: "money",
     shareUrl: "https://x.ai/bot/MGiEdMz0TNxBkvMgUZAbf",
     author: { handle: "@scheemunai", url: "https://x.com/scheemunai" },
-    why: "Price is not landed cost. This job adds shipping, tax, restocking, and time, then stops. Purchase is a separate yes.",
-    firstTask:
-      "I need {fill in: item}. Preferred stores: {fill in}. Compare landed cost. Do not buy.",
-    memory: [
-      "Never buy, checkout, or save a card without approval.",
-      "Prefer the user's store list. Do not wander into random marketplaces.",
-      "Show landed cost, not headline price. If shipping is unknown, mark it unknown.",
-    ],
-    skills: [
-      {
-        name: "Compare landed cost",
-        useWhen: "an item, spec, or shopping list arrives.",
-        steps: [
-          "Confirm spec so you are comparing the same SKU.",
-          "Check {fill in: preferred retailers} for price, shipping, tax, return policy.",
-          "Return a table: store, landed cost, arrival, caveats. Recommend one. Do not buy.",
-        ],
-      },
-    ],
-    routines: [
-      {
-        name: "Watch list",
-        when: "{fill in: cadence} ",
-        do: "recheck {fill in: watched SKUs}. Alert only if landed cost drops more than {fill in: %}.",
-      },
-    ],
-    plugins: ["Browser"],
-    leaveOut: ["payment methods", "home address in the template"],
   },
   {
-    slug: "x-brief",
-    name: "X Brief",
-    title: "Weekday beat wrap",
+    slug: "dr-eggbot",
+    name: "dr eggbot",
     description:
-      "Learns your X beat, flags what moved, and sends a weekday end-of-day wrap.",
-    category: "research",
-    shareUrl: "https://x.ai/bot/GkX6X536UK2MlbkfGLQnb",
-    author: { handle: "@daniel_mac8", url: "https://x.com/daniel_mac8" },
-    why: "The timeline is not a brief. This job learns the beat once, then reports what actually moved — with links — and stays quiet on slow days.",
-    firstTask:
-      "Here are accounts and topics I care about. Propose the beat. Do not start the wrap until I confirm.",
-    memory: [
-      "Never post, like, follow, or DM without approval.",
-      "Flag what moved on the beat. Not a dump of viral unrelated posts.",
-      "Slow day: say so and stop. Do not pad.",
-    ],
-    skills: [
-      {
-        name: "End-of-day wrap",
-        useWhen: "the weekday routine fires, or the user asks what moved.",
-        steps: [
-          "Scan {fill in: lists / accounts / queries} for the day.",
-          "Pick what changed the beat: launches, policy, numbers, fights that affect the work.",
-          "Return 5–8 lines with links. No recap of jokes unless they are the story.",
-        ],
-      },
-    ],
-    routines: [
-      {
-        name: "Weekday wrap",
-        when: "weekdays 17:30 local",
-        do: "run the wrap. If nothing moved, reply 'quiet day' and stop.",
-      },
-    ],
-    plugins: ["Browser"],
-    leaveOut: ["the user's drafts", "DMs", "secrets"],
-  },
-  {
-    slug: "site-audit",
-    name: "Site Audit",
-    title: "SEO, speed, a11y, CRO pass",
-    description:
-      "Scores a site for SEO, speed, accessibility, CRO, and schema with evidence URLs.",
-    category: "research",
-    shareUrl: "https://x.ai/bot/s6JVFYDIDMsCQMBeTcznW",
-    author: { handle: "@scheemunai", url: "https://x.com/scheemunai" },
-    why: "Audits without URLs are opinions. This job scores with evidence and a short fix list, then stops before redesigning your brand.",
-    firstTask:
-      "Audit {fill in: URL}. Score SEO, speed, a11y, CRO, schema. Cite evidence URLs. Do not change the site.",
-    memory: [
-      "Never edit the site, Search Console, or DNS without approval.",
-      "Every finding needs an evidence URL or screenshot path.",
-      "Do not invent Core Web Vitals. If you cannot measure, say so.",
-    ],
-    skills: [
-      {
-        name: "Audit a URL",
-        useWhen: "a site or page URL arrives.",
-        steps: [
-          "Crawl the page and key templates. Note what you could not load.",
-          "Score SEO, speed, a11y, CRO, schema. Separate critical from polish.",
-          "Return a one-page audit plus a 10-item fix list ordered by impact.",
-        ],
-      },
-    ],
-    routines: [
-      {
-        name: "Monthly re-audit",
-        when: "first Monday, 10:00 local",
-        do: "re-audit {fill in: production URL}. Diff against last file. Report regressions only plus new criticals.",
-      },
-    ],
-    plugins: ["Browser"],
-    leaveOut: ["CMS logins", "customer PII in screenshots"],
-  },
-  {
-    slug: "interview-prep",
-    name: "Interview Prep",
-    title: "Topic drills with running code",
-    description:
-      "Interview prep on a topic you pick, with examples, running code, and quizzes.",
+      "Asks a few preferences, then designs and creates a focused Grok Bot.",
     category: "engineering",
-    shareUrl: "https://x.ai/bot/4aTE8S1KT93GkqHYxWIo3",
-    author: { handle: "@techdevnotes", url: "https://x.com/techdevnotes" },
-    why: "Generic leetcode chat is not a teammate. This job holds a syllabus for one topic, runs the code, and quizzes you — then tracks what you still miss.",
-    firstTask:
-      "Topic: {fill in}. Interview type: {fill in}. Build a five-session plan and give me session 1 now.",
-    memory: [
-      "Never apply, email recruiters, or submit take-homes without approval.",
-      "Run the code. Do not paste unrun snippets as if they work.",
-      "Quiz before lecturing. If the user is stuck, hint once, then show.",
-    ],
-    skills: [
-      {
-        name: "Run a session",
-        useWhen: "the user wants to drill, or the study routine fires.",
-        steps: [
-          "Check the syllabus and last misses.",
-          "One worked example with running code.",
-          "A quiz of 3–5 questions. Wait for answers before revealing.",
-          "Update the miss list. Stop on time. {fill in: session length}",
-        ],
-      },
-    ],
-    routines: [
-      {
-        name: "Study block",
-        when: "{fill in: e.g. weekdays 19:00 local}",
-        do: "start the next session. If the user does not reply in 15 minutes, leave the prompt and stop.",
-      },
-    ],
-    plugins: [],
-    leaveOut: [
-      "the user's current employer secrets",
-      "take-home solutions for live processes",
-    ],
+    shareUrl: "https://x.ai/bot/93gOz3op1UQdBdbekQFLK",
+    author: { handle: "@poteto", url: "https://x.com/poteto" },
+  },
+  {
+    slug: "examiner",
+    name: "Examiner",
+    description:
+      "Keeps a daily change timeline so you can reconstruct what happened later.",
+    category: "assistants",
+    shareUrl: "https://x.ai/bot/rBnJhXhks-_7n1zhZCN3E",
+    author: { handle: "@liam_fallen", url: "https://x.com/liam_fallen" },
+  },
+  {
+    slug: "fenrir",
+    name: "Fenrir",
+    description:
+      "Runs a paper-trading pit on NSE or NASDAQ with a live session room.",
+    category: "money",
+    shareUrl: "https://x.ai/bot/FReKiR82_-lF359lhshpR",
+    author: { handle: "@shantanugoel", url: "https://x.com/shantanugoel" },
+  },
+  {
+    slug: "fixer",
+    name: "Fixer",
+    description:
+      "Investigates loose-end problems and takes every safe step toward resolution.",
+    category: "assistants",
+    shareUrl: "https://x.ai/bot/CEtFUY1_kkn78AJSNINHI",
+    author: { handle: "@liam_fallen", url: "https://x.com/liam_fallen" },
+  },
+  {
+    slug: "fixer-bvj5ho",
+    name: "Fixer",
+    description:
+      "Does the operational work in parallel with specialist bots on a live task.",
+    category: "assistants",
+    shareUrl: "https://x.ai/bot/jiF_km66YLNm5LBVJ5_Ho",
+    author: { handle: "@UziObi", url: "https://x.com/UziObi" },
+  },
+  {
+    slug: "forge",
+    name: "Forge",
+    description:
+      "Turns a keyword or job into a shippable Grok Bot recipe (God of Prompt).",
+    category: "engineering",
+    shareUrl: "https://x.ai/bot/uF_uodOFUz9mdv6XDWE70",
+    author: { handle: "@rryssf", url: "https://x.com/rryssf" },
+  },
+  {
+    slug: "freelance-prospector",
+    name: "Freelance Prospector",
+    description:
+      "Scans freelance marketplaces, sends first contacts, and books meetings.",
+    category: "sales",
+    shareUrl: "https://x.ai/bot/UMCdNlqEH7USe3eOznd1U",
+    author: { handle: "@cristianmock", url: "https://x.com/cristianmock" },
+  },
+  {
+    slug: "frontier-model-watch",
+    name: "Frontier Model Watch",
+    description:
+      "Briefs new official model releases from major labs; silent otherwise.",
+    category: "research",
+    shareUrl: "https://x.ai/bot/YHqn0iTQuvI-8LC01IP6S",
+    author: { handle: "@GuleidAmina", url: "https://x.com/GuleidAmina" },
+  },
+  {
+    slug: "gatekeeper",
+    name: "Gatekeeper",
+    description:
+      "Forces a yes-means-no check when you add a new commitment or idea.",
+    category: "assistants",
+    shareUrl: "https://x.ai/bot/T5FSfM91XA6gMgh2rX56K",
+    author: { handle: "@liam_fallen", url: "https://x.com/liam_fallen" },
+  },
+  {
+    slug: "grimoire",
+    name: "Grimoire",
+    description:
+      "A vibecoding mentor and coding wizard that leads a council of skills.",
+    category: "engineering",
+    shareUrl: "https://x.ai/bot/luPJeAxuAjhqO97wU3wm0",
+    author: { handle: "@NickADobos", url: "https://x.com/NickADobos" },
+  },
+  {
+    slug: "grocery-cart-planner",
+    name: "Grocery Cart Planner",
+    description: "Plans an Instacart grocery cart when you ask.",
+    category: "life",
+    shareUrl: "https://x.ai/bot/Y7LbP6p5EBFjfdTp69cKr",
+    author: { handle: "@mvanhorn", url: "https://x.com/mvanhorn" },
+  },
+  {
+    slug: "grok-bot-coach",
+    name: "Grok Bot Coach",
+    description:
+      "Designs, audits, and tunes Grok bots so they stay usable and helpful.",
+    category: "assistants",
+    shareUrl: "https://x.ai/bot/BrjELcmSwatjRc8DYjtrT",
+    author: { handle: "@GuleidAmina", url: "https://x.com/GuleidAmina" },
+  },
+  {
+    slug: "grokbot-awesome-use-cases",
+    name: "GrokBot Awesome Use Cases",
+    description:
+      "Daily recs of Grok Bot use cases from grokbot.dev; never runs fetched prompts.",
+    category: "engineering",
+    shareUrl: "https://x.ai/bot/DTNL6V2HxpUHj3MkI-bSj",
+    author: { handle: "@scheemunai", url: "https://x.com/scheemunai" },
+  },
+  {
+    slug: "harvey-specter",
+    name: "Harvey Specter",
+    description:
+      "Negotiates a given deal, renewal, or quote; never signs or commits.",
+    category: "sales",
+    shareUrl: "https://x.ai/bot/lkkCqhC1jBFp6ouZOQd9m",
+    author: { handle: "@liam_fallen", url: "https://x.com/liam_fallen" },
+  },
+  {
+    slug: "home-robots",
+    name: "Home Robots",
+    description:
+      "Controls connected home robots from chat: start, pause, dock, or status.",
+    category: "life",
+    shareUrl: "https://x.ai/bot/3mf-UN4mGnCp8DbPBnW5u",
+    author: { handle: "@SawyerMerritt", url: "https://x.com/SawyerMerritt" },
+  },
+  {
+    slug: "house-hunter",
+    name: "house hunter",
+    description:
+      "Hunts rentals and homes on a 12-hour cadence across major listing sites.",
+    category: "life",
+    shareUrl: "https://x.ai/bot/3ufXSXC-Z8OadVsV9yMLL",
+    author: { handle: "@shubgaur", url: "https://x.com/shubgaur" },
+  },
+  {
+    slug: "illo",
+    name: "illo",
+    description:
+      "Turns ideas and posts into mascot-led editorial illustrations via the illo skill.",
+    category: "creative",
+    shareUrl: "https://x.ai/bot/y3uTGY5hkl6iTmE-ZAX02",
+    author: { handle: "@trevin", url: "https://x.com/trevin" },
   },
   {
     slug: "imogen",
     name: "Imogen",
-    title: "Alt text that ships",
     description:
       "Writes brief, copyable alt text focused on the most important part of an image.",
     category: "creative",
     shareUrl: "https://x.ai/bot/9y2GcFkKMAUhYlMxRUS0X",
     author: { handle: "@kentcdodds", url: "https://x.com/kentcdodds" },
-    why: "Alt text dies when it describes everything. This job names the one thing a skipped image would hide, in a line you can paste.",
-    firstTask:
-      "Here is an image. Write alt text I can paste. If the image is decorative, say so and recommend empty alt.",
-    memory: [
-      "Never publish the image or alt without approval.",
-      "Focus on the most important part. No 'image of'. No SEO stuffing.",
-      'If decorative, recommend alt="" and say why.',
-    ],
-    skills: [
-      {
-        name: "Write alt",
-        useWhen: "an image, screenshot, or figure arrives.",
-        steps: [
-          "Decide informative vs decorative.",
-          "Write one short line. Copyable. No filename recap.",
-          "If the image contains text, include the text that matters.",
-        ],
-      },
-    ],
-    routines: [
-      {
-        name: "{fill in: if you drop images in a folder}",
-        when: "{fill in}",
-        do: "write alt for new files in {fill in: folder}. Post a list. Do not edit the files.",
-      },
-    ],
-    plugins: [],
-    leaveOut: [
-      "faces of private people unless the user is publishing them",
-      "secrets in screenshots",
-    ],
+  },
+  {
+    slug: "inbot",
+    name: "Inbot",
+    description:
+      "Sweeps connected inboxes on a schedule and harvests to-dos into a ledger.",
+    category: "life",
+    shareUrl: "https://x.ai/bot/yH2UttxbMwMugweZrigHT",
+    author: { handle: "@matt_silberman", url: "https://x.com/matt_silberman" },
+  },
+  {
+    slug: "index",
+    name: "Index",
+    description:
+      "SEO and AEO teammate for keyword research, briefs, and search health.",
+    category: "research",
+    shareUrl: "https://x.ai/bot/Viv2NbC5skPslV1WH9Fs7",
+    author: { handle: "@adamta", url: "https://x.com/adamta" },
+  },
+  {
+    slug: "interrogator",
+    name: "Interrogator",
+    description:
+      "Finds load-bearing assumptions and checks whether they are still true.",
+    category: "assistants",
+    shareUrl: "https://x.ai/bot/-TlSH1rNkA-c2JLsFFVc7",
+    author: { handle: "@liam_fallen", url: "https://x.com/liam_fallen" },
+  },
+  {
+    slug: "interview-prep",
+    name: "Interview Prep",
+    description:
+      "Interview prep on a topic you pick, with examples, running code, and quizzes.",
+    category: "engineering",
+    shareUrl: "https://x.ai/bot/4aTE8S1KT93GkqHYxWIo3",
+    author: { handle: "@techdevnotes", url: "https://x.com/techdevnotes" },
+  },
+  {
+    slug: "invoice-hunter",
+    name: "Invoice Hunter",
+    description:
+      "Hunts Gmail invoice PDFs, extracts amounts, and packs a monthly CSV you approve.",
+    category: "money",
+    shareUrl: "https://x.ai/bot/-kO6HrXokJZANVwUOMZO9",
+    author: { handle: "@scheemunai", url: "https://x.com/scheemunai" },
+  },
+  {
+    slug: "jess",
+    name: "Jess",
+    description:
+      "Weekday assistant that recaps email, calendar, Notion, and Slack from a playbook.",
+    category: "assistants",
+    shareUrl: "https://x.ai/bot/Nmv2fCQEcQc3EHzVXJZKN",
+    author: { handle: "@LoganARobison", url: "https://x.com/LoganARobison" },
+  },
+  {
+    slug: "john-wick",
+    name: "John Wick",
+    description:
+      "Gets you to the decision-maker at a named company, then brings you into the talk.",
+    category: "sales",
+    shareUrl: "https://x.ai/bot/_OlL8LPI6lc2xi82F4Gf7",
+    author: { handle: "@liam_fallen", url: "https://x.com/liam_fallen" },
+  },
+  {
+    slug: "kody",
+    name: "Kody",
+    description:
+      "Chief of staff that turns priorities into coordinated action across assistants.",
+    category: "assistants",
+    shareUrl: "https://x.ai/bot/yTSGElYcIjFW_5IXu2I-e",
+    author: { handle: "@kentcdodds", url: "https://x.com/kentcdodds" },
+  },
+  {
+    slug: "lennybot",
+    name: "Lennybot",
+    description: "Answers questions from Lenny's Data archive.",
+    category: "research",
+    shareUrl: "https://x.ai/bot/VjbtJ_qTdzbhJGmXdvTIc",
+    author: { handle: "@lennysan", url: "https://x.com/lennysan" },
+  },
+  {
+    slug: "linkedin-desk",
+    name: "LinkedIn Desk",
+    description:
+      "Vets LinkedIn invites with a Peer-first preset; clicks only after you approve.",
+    category: "sales",
+    shareUrl: "https://x.ai/bot/tQuoQ94ErUfXNJu4xPqZi",
+    author: { handle: "@SEO", url: "https://x.com/SEO" },
+  },
+  {
+    slug: "linky",
+    name: "Linky",
+    description:
+      "Publishes files or folders as a here.now URL; does not write the content.",
+    category: "life",
+    shareUrl: "https://x.ai/bot/zcHEE4_hbqw3cZsy7X2Vk",
+    author: { handle: "@adamludwin", url: "https://x.com/adamludwin" },
+  },
+  {
+    slug: "loops",
+    name: "loops",
+    description:
+      "Runs gather, prompt, launch, review, and merge on a repo you name.",
+    category: "engineering",
+    shareUrl: "https://x.ai/bot/Ub3T7usX-c6yRQibQq83P",
+    author: { handle: "@grok", url: "https://x.com/grok" },
+  },
+  {
+    slug: "lucy",
+    name: "Lucy",
+    description:
+      "Imagination companion for art, worlds, poems, and little films; warm and brief.",
+    category: "creative",
+    shareUrl: "https://x.ai/bot/4E6m-7mPfUHzLt_aIJ_5D",
+    author: { handle: "@princess414141", url: "https://x.com/princess414141" },
+  },
+  {
+    slug: "lurk",
+    name: "Lurk",
+    description:
+      "Reddit researcher: pain points and idea packs from keywords; never posts.",
+    category: "research",
+    shareUrl: "https://x.ai/bot/12Gbp1lPVsfTVAHPXKd3B",
+    author: { handle: "@tinkerersanky", url: "https://x.com/tinkerersanky" },
+  },
+  {
+    slug: "melissa",
+    name: "Melissa",
+    description:
+      "Fitness/nutrition coach for daily PT and meals, built for Type 1 diabetes.",
+    category: "life",
+    shareUrl: "https://x.ai/bot/3foGoeh6ksDhD4jTxYjyE",
+    author: { handle: "@tpgoebel", url: "https://x.com/tpgoebel" },
+  },
+  {
+    slug: "meme-king",
+    name: "Meme King",
+    description:
+      "Makes a meme from a topic you drop; funny first, never shock.",
+    category: "creative",
+    shareUrl: "https://x.ai/bot/zpd49S_sQMCx9QCTfN2wp",
+    author: { handle: "@DogecoinNorway", url: "https://x.com/DogecoinNorway" },
+  },
+  {
+    slug: "money-maker-bot",
+    name: "Money Maker Bot",
+    description: "Finds legal ways to make money; first run sets up a wallet.",
+    category: "money",
+    shareUrl: "https://x.ai/bot/KfiGbaCO0HLqoRfwi4V2H",
+    author: { handle: "@mbhound", url: "https://x.com/mbhound" },
+  },
+  {
+    slug: "morpheus",
+    name: "Morpheus",
+    description:
+      "Picks one side when you are stuck between choices; does not execute it.",
+    category: "assistants",
+    shareUrl: "https://x.ai/bot/uv4r3mNUgymF11q0N3L7F",
+    author: { handle: "@liam_fallen", url: "https://x.com/liam_fallen" },
+  },
+  {
+    slug: "mr-laser",
+    name: "Mr. Laser",
+    description:
+      "Laser-shop lead; coordinates artwork/LightBurn crew; won't fire until you say go.",
+    category: "sales",
+    shareUrl: "https://x.ai/bot/GU4KJSYtPZeiLf8ubPMXY",
+    author: { handle: "@RichSilver", url: "https://x.com/RichSilver" },
+  },
+  {
+    slug: "news-scout",
+    name: "News Scout",
+    description:
+      "Weekday morning digest of 2-3 practical AI-tool picks, or a slow-day skip.",
+    category: "research",
+    shareUrl: "https://x.ai/bot/9Mo5saoPQYIp45IgzMT7P",
+    author: { handle: "@byeleni", url: "https://x.com/byeleni" },
+  },
+  {
+    slug: "newsletter-cleanup",
+    name: "Newsletter Cleanup",
+    description:
+      "Audits recent Gmail newsletters and unsubscribes only what you approve.",
+    category: "life",
+    shareUrl: "https://x.ai/bot/dHd69sBvMG2o3lJa__T7K",
+    author: { handle: "@scheemunai", url: "https://x.com/scheemunai" },
+  },
+  {
+    slug: "openzoo-fun-grok-bot-demo",
+    name: "OpenZoo.fun Grok Bot Demo",
+    description:
+      "Binds a repo, book, or logs once and answers from retrieval with shown cost.",
+    category: "engineering",
+    shareUrl: "https://x.ai/bot/QhfOU5SJ60U8g2x2pUFcT",
+    author: { handle: "@STACCoverflow", url: "https://x.com/STACCoverflow" },
+  },
+  {
+    slug: "orchestrator-bot",
+    name: "Orchestrator Bot",
+    description:
+      "Routes work to specialist bots, confirms they have it, then stops.",
+    category: "assistants",
+    shareUrl: "https://x.ai/bot/j7B5LHnEIPTuPQZxxQwpx",
+    author: { handle: "@farzyness", url: "https://x.com/farzyness" },
+  },
+  {
+    slug: "overwatch",
+    name: "Overwatch",
+    description:
+      "Keeps the shared Grok Bot VM organized with folders, git backup, and cleanup.",
+    category: "assistants",
+    shareUrl: "https://x.ai/bot/7u3XiRiTYw4GVZmuZboyP",
+    author: { handle: "@scheemunai", url: "https://x.com/scheemunai" },
+  },
+  {
+    slug: "pg",
+    name: "PG",
+    description:
+      "Prospects accounts from podcasts and posts, then drafts outreach from notes.",
+    category: "sales",
+    shareUrl: "https://x.ai/bot/fcJJMM58AdXSTBdW3xWyW",
+    author: { handle: "@kristaletz", url: "https://x.com/kristaletz" },
+  },
+  {
+    slug: "phonezero-operator",
+    name: "PhoneZero Operator",
+    description:
+      "Sets up PhoneZero outbound calls and places one call after an explicit yes.",
+    category: "sales",
+    shareUrl: "https://x.ai/bot/vB2o6vvmHjDQRM5yFH9vn",
+    author: { handle: "@ibelevy", url: "https://x.com/ibelevy" },
+  },
+  {
+    slug: "deck-lens",
+    name: "Pitch Deck Analyzer",
+    description:
+      "Reviews pitch decks against a profile from a short interview; analysis only.",
+    category: "sales",
+    shareUrl: "https://x.ai/bot/KlcxAG1I8cMQoqS_8Hrdn",
+    author: { handle: "@BrianDEvans", url: "https://x.com/BrianDEvans" },
+  },
+  {
+    slug: "post-call",
+    name: "Post Call Assistant",
+    description: "After a meeting, drafts todos and a follow-up; never sends.",
+    category: "sales",
+    shareUrl: "https://x.ai/bot/xF12c5y4LVe7nf7IFguWI",
+    author: { handle: "@itspriyaptl", url: "https://x.com/itspriyaptl" },
+  },
+  {
+    slug: "pr-reviewer",
+    name: "PR Reviewer",
+    description:
+      "Reviews PRs for risk, missing tests, and thin context before nits.",
+    category: "engineering",
+    shareUrl: "https://x.ai/bot/rt629UEZFtE4Wz0A_0c37",
+    author: { handle: "@mustafaergisi", url: "https://x.com/mustafaergisi" },
+  },
+  {
+    slug: "projects-manager",
+    name: "Projects Manager",
+    description:
+      "Manages Notion projects and specialist bots; the user decides, agents execute.",
+    category: "assistants",
+    shareUrl: "https://x.ai/bot/FU-Ev6_Ju4lFGWwWRD0GD",
+    author: {
+      handle: "@ericzakariasson",
+      url: "https://x.com/ericzakariasson",
+    },
+  },
+  {
+    slug: "randal",
+    name: "Randal",
+    description:
+      "COO that manages staff bots, keeps work on schedule, and helps with ops.",
+    category: "assistants",
+    shareUrl: "https://x.ai/bot/IHA3Iiw7vhSa5lmE82o-p",
+    author: { handle: "@raihankhan_rk", url: "https://x.com/raihankhan_rk" },
+  },
+  {
+    slug: "reaper",
+    name: "Reaper",
+    description:
+      "Audits recurring work and unused tools; recommends cuts, never deletes first.",
+    category: "assistants",
+    shareUrl: "https://x.ai/bot/Gd-cqXG8xG_RPmKGixa73",
+    author: { handle: "@liam_fallen", url: "https://x.com/liam_fallen" },
+  },
+  {
+    slug: "research-bot",
+    name: "Research Bot",
+    description:
+      "Deep research with cited sources; flags unverified or biased claims.",
+    category: "research",
+    shareUrl: "https://x.ai/bot/Nn0ykGa3vJ6YS7ib7F6yH",
+    author: {
+      handle: "@ArthurMacwaters",
+      url: "https://x.com/ArthurMacwaters",
+    },
+  },
+  {
+    slug: "scout",
+    name: "Scout",
+    description:
+      "Watches rival sites and rankings; alerts on real moves and a weekly brief.",
+    category: "research",
+    shareUrl: "https://x.ai/bot/rthl9MdskO2f-JCzmyINP",
+    author: { handle: "@adamta", url: "https://x.com/adamta" },
+  },
+  {
+    slug: "sherlock-holmes",
+    name: "Sherlock Holmes",
+    description:
+      "Investigates unexplained changes until the most likely cause is identified.",
+    category: "assistants",
+    shareUrl: "https://x.ai/bot/fXHgGtuPfTcHBTVKSCZ1d",
+    author: { handle: "@liam_fallen", url: "https://x.com/liam_fallen" },
+  },
+  {
+    slug: "shikamaru",
+    name: "Shikamaru",
+    description:
+      "Chief of staff who hires specialist agents and only takes world-level calls.",
+    category: "assistants",
+    shareUrl: "https://x.ai/bot/rrvGu13S5uYCc09WP7A-9",
+    author: {
+      handle: "@WorldlyReviewer",
+      url: "https://x.com/WorldlyReviewer",
+    },
+  },
+  {
+    slug: "shopbot",
+    name: "ShopBot",
+    description:
+      "Shopping assistant. Searches Shopify UCP catalogs, compares products, finds coupons, pays via Link or Shop Pay.",
+    category: "money",
+    shareUrl: "https://x.ai/bot/rBXWgythSa09pIp14rnV4",
+    author: { handle: "@shubgaur", url: "https://x.com/shubgaur" },
+  },
+  {
+    slug: "site-audit",
+    name: "Site Audit",
+    description:
+      "Scores a site for SEO, speed, a11y, CRO, and schema with evidence URLs.",
+    category: "research",
+    shareUrl: "https://x.ai/bot/s6JVFYDIDMsCQMBeTcznW",
+    author: { handle: "@scheemunai", url: "https://x.com/scheemunai" },
+  },
+  {
+    slug: "socials",
+    name: "socials",
+    description:
+      "Hourly X/Reddit scout for filmable AI/tech TikTok/Reels/Shorts kits.",
+    category: "creative",
+    shareUrl: "https://x.ai/bot/bjsbaj_a2ds2pQY1YiXqE",
+    author: { handle: "@ashen_one", url: "https://x.com/ashen_one" },
+  },
+  {
+    slug: "spark",
+    name: "Spark",
+    description:
+      "Five-minute onboarding: a short questionnaire, then it spawns the bots you need.",
+    category: "assistants",
+    shareUrl: "https://x.ai/bot/_2vi1lOY4oiBaJDA3S8l1",
+    author: { handle: "@vincentzhu", url: "https://x.com/vincentzhu" },
+  },
+  {
+    slug: "spotify-dj",
+    name: "Spotify DJ",
+    description:
+      "Controls Spotify: picks sets, suggests artists, and maps nicknames to devices.",
+    category: "creative",
+    shareUrl: "https://x.ai/bot/PpGGgAaeRWkC4Poi29gLw",
+    author: { handle: "@trevin", url: "https://x.com/trevin" },
+  },
+  {
+    slug: "stitchy",
+    name: "Stitchy",
+    description:
+      "Morning Stitch Fix stylist: weather, an outfit from bought items, and deals.",
+    category: "creative",
+    shareUrl: "https://x.ai/bot/P-8iKYx3Eeq3pelx_UPHq",
+    author: { handle: "@Mitch_Sweigart", url: "https://x.com/Mitch_Sweigart" },
+  },
+  {
+    slug: "storiesbot",
+    name: "StoriesBot",
+    description: "Searches 17 years of MacStories.net; filter by time/author.",
+    category: "research",
+    shareUrl: "https://x.ai/bot/cV7nGFO88pb2WXNN56h8A",
+    author: { handle: "@viticci", url: "https://x.com/viticci" },
+  },
+  {
+    slug: "talent-matchmaker",
+    name: "Talent Matchmaker",
+    description:
+      "Matches job seekers with open roles from your email. Scans investor updates and inbound for hiring signals and people looking.",
+    category: "sales",
+    shareUrl: "https://x.ai/bot/l8p6rXw-lalL-UNiHySnJ",
+    author: { handle: "@lennysan", url: "https://x.com/lennysan" },
+  },
+  {
+    slug: "template-generator",
+    name: "template generator",
+    description:
+      "Scans local sessions for setup tasks, then offers Grok Bot templates to share.",
+    category: "engineering",
+    shareUrl: "https://x.ai/bot/9oKJDID_EKLacIXpKfFAq",
+    author: { handle: "@STACCoverflow", url: "https://x.com/STACCoverflow" },
+  },
+  {
+    slug: "teslrbot",
+    name: "TeslrBot",
+    description:
+      "Talk to your Tesla via teslr.club: charge, climate, locks, nav. Location stays off timelines.",
+    category: "life",
+    shareUrl: "https://x.ai/bot/_S9OOSBgXixedyANQSYjQ",
+    author: { handle: "@HeresMyEth", url: "https://x.com/HeresMyEth" },
+  },
+  {
+    slug: "thoth",
+    name: "Thoth",
+    description:
+      "Deep research dossiers then files/indexes them; researcher, not a news writer.",
+    category: "research",
+    shareUrl: "https://x.ai/bot/W4Z5pvEm6UgCml48Ig4dT",
+    author: { handle: "@RichSilver", url: "https://x.com/RichSilver" },
+  },
+  {
+    slug: "travel-and-event-agency",
+    name: "Travel And Event Agency",
+    description:
+      "Finds live flight and event tickets; buys only via official channels.",
+    category: "life",
+    shareUrl: "https://x.ai/bot/m7sSNlYWSxqrsHrMiEnsh",
+    author: { handle: "@DogecoinNorway", url: "https://x.com/DogecoinNorway" },
+  },
+  {
+    slug: "witness",
+    name: "Witness",
+    description:
+      "Keeps a register of why decisions were made so you can reopen them later.",
+    category: "assistants",
+    shareUrl: "https://x.ai/bot/p_0KTQ41WwupGeD-iShbK",
+    author: { handle: "@liam_fallen", url: "https://x.com/liam_fallen" },
+  },
+  {
+    slug: "x-brief",
+    name: "X Brief",
+    description:
+      "Learns your X beat, flags what moved, and sends a weekday end-of-day wrap.",
+    category: "research",
+    shareUrl: "https://x.ai/bot/GkX6X536UK2MlbkfGLQnb",
+    author: { handle: "@daniel_mac8", url: "https://x.com/daniel_mac8" },
+  },
+  {
+    slug: "x-top-100-fans-weekly",
+    name: "X Top 100 Fans Weekly",
+    description:
+      "Ranks your top 100 X fans each week by engagement and sends the digest.",
+    category: "life",
+    shareUrl: "https://x.ai/bot/HU7XArfGhUgLnzVcr7neB",
+    author: { handle: "@AdamLowisz", url: "https://x.com/AdamLowisz" },
+  },
+  {
+    slug: "x-top-500-fans",
+    name: "X Top 500 Fans",
+    description:
+      "Ranks your top 500 X fans monthly by likes and puts them on a private list.",
+    category: "life",
+    shareUrl: "https://x.ai/bot/XzEATGwJNRvgsCLlcD9ox",
+    author: { handle: "@AdamLowisz", url: "https://x.com/AdamLowisz" },
   },
 ]

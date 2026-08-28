@@ -20,18 +20,6 @@ export const categoryLabels: Record<Category, string> = {
   life: "Life",
 }
 
-export type Skill = {
-  name: string
-  useWhen: string
-  steps: string[]
-}
-
-export type Routine = {
-  name: string
-  when: string
-  do: string
-}
-
 export type Author = {
   handle: string
   url: string
@@ -40,17 +28,8 @@ export type Author = {
 export type Template = {
   slug: string
   name: string
-  title: string
   description: string
   category: Category
-  featured?: boolean
-  shareUrl?: string
+  shareUrl: string
   author?: Author
-  why: string
-  firstTask: string
-  memory: string[]
-  skills: Skill[]
-  routines: Routine[]
-  plugins: string[]
-  leaveOut: string[]
 }

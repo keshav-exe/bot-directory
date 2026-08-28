@@ -6,6 +6,7 @@ import { motion, useReducedMotion } from "motion/react"
 import { DirectorySearch } from "@/components/directory-search"
 import { Button } from "@/components/ui/button"
 import { site } from "@/lib/site"
+import { templates } from "@/lib/templates"
 
 const easeOut = [0.32, 0.72, 0, 1] as const
 
@@ -34,7 +35,7 @@ export function HomeIntro({
       }
 
   return (
-    <section className="relative mx-auto flex w-full max-w-6xl flex-col px-4 pb-10 pt-16 sm:px-6 sm:pb-12 sm:pt-20 lg:px-8">
+    <section className="relative mx-auto flex w-full max-w-6xl flex-col px-4 pt-16 pb-10 sm:px-6 sm:pt-20 sm:pb-12 lg:px-8">
       <motion.div
         className="flex flex-col items-center text-center"
         initial={reduce ? false : "hidden"}
@@ -45,7 +46,10 @@ export function HomeIntro({
           Jobs you can copy.
         </h1>
         <p className="mx-auto mt-4 max-w-[42ch] text-lg text-pretty text-muted-foreground">
-          Open a share link, paste a recipe, or list yours with a pull request.
+          <span className="tabular-nums">
+            {templates.length.toLocaleString("en")}
+          </span>{" "}
+          templates. Open a share link, or list yours with a pull request.
         </p>
         <DirectorySearch
           value={search}
@@ -64,9 +68,9 @@ export function HomeIntro({
             size="lg"
             variant="secondary"
             nativeButton={false}
-            render={<Link href="/guide" />}
+            render={<Link href="/write" />}
           >
-            Read the guide
+            Submit a template
           </Button>
         </div>
       </motion.div>

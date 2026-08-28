@@ -1,7 +1,7 @@
 import { categories, type Template } from "./types"
 
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
-const SHARE = /^https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+$/
+const SHARE = /^https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+(?:\/[A-Za-z0-9_-]+)?$/
 const SECRET =
   /\bsk-[a-zA-Z0-9]{16,}\b|BEGIN (?:RSA |OPENSSH |EC )?PRIVATE KEY|xox[baprs]-/i
 
@@ -25,31 +25,16 @@ export function getCatalogProblems(templates: Template[]): string[] {
       problems.push(`${template.slug}: unknown category ${template.category}`)
     }
 
-    for (const field of [
-      "name",
-      "title",
-      "description",
-      "why",
-      "firstTask",
-    ] as const) {
+    for (const field of ["name", "description"] as const) {
       const value = template[field]?.trim() ?? ""
-      if (!value || /^\{fill in[:}]/.test(value)) {
+      if (!value) {
         problems.push(`${template.slug}: ${field} needs a real value`)
       }
     }
 
-    if (template.memory.length === 0) {
-      problems.push(`${template.slug}: memory is empty`)
-    }
-
-    if (template.skills.length === 0) {
-      problems.push(`${template.slug}: skills is empty`)
-    }
-
-    if (template.shareUrl) {
-      if (!SHARE.test(template.shareUrl)) {
-        problems.push(`${template.slug}: shareUrl must be https://x.ai/bot/…`)
-      }
+    if (!SHARE.test(template.shareUrl)) {
+      problems.push(`${template.slug}: shareUrl must be https://x.ai/bot/…`)
+    } else {
       const owner = shares.get(template.shareUrl)
       if (owner) {
         problems.push(
