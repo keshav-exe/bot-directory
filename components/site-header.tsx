@@ -33,7 +33,7 @@ export function SiteHeader({ stars = null }: { stars?: number | null }) {
     <header className="sticky top-0 z-(--z-dropdown) max-h-16 bg-background/90 backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-6xl items-center gap-6 px-4 sm:h-16 sm:px-6 lg:px-8">
         <div className="flex min-w-0 flex-1 items-center gap-8">
-          <Link href="/" aria-label="Homepage" className="min-w-0 shrink-0">
+          <Link href="/" aria-label="Homepage" className="link-brand min-w-0 shrink-0">
             <Wordmark />
           </Link>
           <nav aria-label="Primary" className="flex max-lg:hidden">
@@ -52,7 +52,7 @@ export function SiteHeader({ stars = null }: { stars?: number | null }) {
                       className={
                         current
                           ? "text-foreground"
-                          : "text-muted-foreground hover:text-foreground"
+                          : "link-muted"
                       }
                     >
                       {item.label}
@@ -118,10 +118,10 @@ export function SiteHeader({ stars = null }: { stars?: number | null }) {
                               href={item.href}
                               aria-current={current ? "page" : undefined}
                               className={cn(
-                                "flex rounded-xl px-3 py-2",
+                                "surface-row flex rounded-xl px-3 py-2",
                                 current
                                   ? "bg-muted text-foreground"
-                                  : "text-muted-foreground"
+                                  : "link-muted"
                               )}
                             />
                           }

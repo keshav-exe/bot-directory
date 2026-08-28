@@ -14,7 +14,7 @@ export default function NotFound() {
           The link may be old, or we never added it. Browse jobs, or{" "}
           <Link
             href="/write"
-            className="text-foreground hover:underline hover:decoration-foreground/30 hover:underline-offset-4"
+            className="link-text"
           >
             submit one
           </Link>{" "}

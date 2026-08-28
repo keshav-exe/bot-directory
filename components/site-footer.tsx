@@ -22,26 +22,17 @@ export function SiteFooter() {
             role="list"
           >
             <li>
-              <Link
-                href="/"
-                className="font-normal text-muted-foreground hover:text-foreground"
-              >
+              <Link href="/" className="link-muted font-normal">
                 Templates
               </Link>
             </li>
             <li>
-              <Link
-                href="/guide"
-                className="font-normal text-muted-foreground hover:text-foreground"
-              >
+              <Link href="/guide" className="link-muted font-normal">
                 Guide
               </Link>
             </li>
             <li>
-              <Link
-                href="/write"
-                className="font-normal text-muted-foreground hover:text-foreground"
-              >
+              <Link href="/write" className="link-muted font-normal">
                 Submit a template
               </Link>
             </li>
@@ -50,7 +41,7 @@ export function SiteFooter() {
                 href={site.github}
                 target="_blank"
                 rel="noreferrer"
-                className="font-normal text-muted-foreground hover:text-foreground"
+                className="link-muted font-normal"
               >
                 GitHub
               </a>
@@ -60,7 +51,7 @@ export function SiteFooter() {
                 href={site.docs}
                 target="_blank"
                 rel="noreferrer"
-                className="font-normal text-muted-foreground hover:text-foreground"
+                className="link-muted font-normal"
               >
                 Grok Bot docs
               </a>

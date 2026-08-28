@@ -197,6 +197,38 @@
   }
 }
 
+@utility link-muted {
+  @apply text-muted-foreground transition-colors duration-200 ease-out motion-reduce:transition-none;
+  @apply hover:text-foreground active:text-foreground/80;
+}
+
+@utility link-text {
+  @apply text-foreground underline-offset-4 transition-[color,opacity] duration-200 ease-out motion-reduce:transition-none;
+  @apply hover:underline hover:decoration-foreground/30 active:opacity-80;
+}
+
+@utility link-brand {
+  @apply transition-opacity duration-200 ease-out motion-reduce:transition-none;
+  @apply hover:opacity-80 active:opacity-70;
+}
+
+@utility surface-card {
+  @apply transition-[background-color,transform] duration-200 ease-out motion-reduce:transition-none;
+  @apply hover:bg-[color-mix(in_oklch,var(--card),var(--foreground)_4%)];
+  @apply active:scale-[0.995];
+}
+
+@utility surface-chip {
+  @apply transition-[background-color,color,transform] duration-200 ease-out motion-reduce:transition-none;
+  @apply active:scale-[0.97];
+}
+
+@utility surface-row {
+  @apply transition-[background-color,color,transform] duration-200 ease-out motion-reduce:transition-none;
+  @apply hover:bg-[color-mix(in_oklch,var(--muted),var(--foreground)_4%)];
+  @apply active:scale-[0.98];
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -251,6 +283,18 @@
     text-decoration-thickness: from-font;
     text-underline-offset: 0.18em;
     text-underline-position: from-font;
+    transition:
+      color 200ms ease,
+      opacity 200ms ease,
+      text-decoration-color 200ms ease;
+  }
+
+  & a:hover {
+    text-decoration-color: color-mix(in oklch, var(--foreground) 30%, transparent);
+  }
+
+  & a:active {
+    opacity: 0.8;
   }
 
   & strong {

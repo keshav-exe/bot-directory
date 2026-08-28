@@ -85,7 +85,7 @@ export function Directory({
             Clear the search or pick another category. Or{" "}
             <Link
               href="/write"
-              className="text-foreground hover:underline hover:underline-offset-4"
+              className="link-text"
             >
               submit a job
             </Link>
@@ -94,7 +94,7 @@ export function Directory({
           <p className="text-base/7 sm:text-sm/6">
             <button
               type="button"
-              className="text-foreground hover:underline hover:underline-offset-4"
+              className="link-text"
               onClick={() => {
                 onSearchChange("")
                 updateCategory("all")
@@ -138,10 +138,10 @@ function FilterChip({
       aria-selected={pressed}
       onClick={onClick}
       className={cn(
-        "relative shrink-0 rounded-full px-3 py-1.5 text-base/7 sm:text-sm/6",
+        "surface-chip relative shrink-0 rounded-full px-3 py-1.5 text-base/7 sm:text-sm/6",
         pressed
           ? "bg-card text-foreground"
-          : "text-muted-foreground hover:text-foreground"
+          : "text-muted-foreground hover:bg-[color-mix(in_oklch,var(--card),var(--foreground)_3%)] hover:text-foreground"
       )}
     >
       {children}

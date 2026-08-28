@@ -52,10 +52,7 @@ export default async function TemplatePage({ params }: Props) {
     <main>
       <PageContainer className="py-12 sm:py-16">
         <p className="text-base/7 sm:text-sm/6">
-          <Link
-            href="/"
-            className="text-muted-foreground hover:text-foreground"
-          >
+          <Link href="/" className="link-muted">
             Templates
           </Link>
         </p>
@@ -76,7 +73,7 @@ export default async function TemplatePage({ params }: Props) {
                   href={template.author.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-foreground hover:underline hover:underline-offset-4"
+                  className="link-text"
                 >
                   {template.author.handle}
                 </a>
@@ -234,7 +231,7 @@ export default async function TemplatePage({ params }: Props) {
             <p className="mt-4 text-base/7 sm:text-sm/6">
               <Link
                 href="/guide#install"
-                className="text-foreground hover:underline hover:decoration-foreground/30 hover:underline-offset-4"
+                className="link-text"
               >
                 Install notes
               </Link>
@@ -245,7 +242,7 @@ export default async function TemplatePage({ params }: Props) {
                   href={template.shareUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="font-mono text-sm break-all text-muted-foreground hover:text-foreground"
+                  className="link-muted font-mono text-sm break-all"
                 >
                   {template.shareUrl.replace("https://", "")}
                 </a>
@@ -256,7 +253,7 @@ export default async function TemplatePage({ params }: Props) {
                 href={site.docs}
                 target="_blank"
                 rel="noreferrer"
-                className="text-muted-foreground hover:text-foreground"
+                className="link-muted"
               >
                 Grok Bot docs
               </a>

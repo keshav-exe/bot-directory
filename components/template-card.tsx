@@ -4,14 +4,14 @@ import type { Template } from "@/lib/templates"
 
 export function TemplateCard({ template }: { template: Template }) {
   return (
-    <article className="relative flex h-full flex-col rounded-[1.75rem] bg-card p-6 sm:p-7">
+    <article className="surface-card relative flex h-full flex-col rounded-[1.75rem] bg-card p-6 sm:p-7">
       <Link
         href={`/templates/${template.slug}`}
         className="absolute inset-0 rounded-[1.75rem] focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/30"
         aria-label={`View ${template.name}`}
       />
       <div className="pointer-events-none relative flex min-h-0 flex-1 flex-col gap-3">
-        <h2 className="text-lg font-medium tracking-tight text-balance sm:text-xl">
+        <h2 className="text-lg font-medium text-balance sm:text-xl">
           {template.name}
         </h2>
         <p className="text-base/7 text-pretty text-muted-foreground sm:text-sm/6">
@@ -26,7 +26,7 @@ export function TemplateCard({ template }: { template: Template }) {
               href={template.author.url}
               target="_blank"
               rel="noreferrer"
-              className="pointer-events-auto text-muted-foreground transition-colors duration-200 ease hover:text-foreground"
+              className="link-muted pointer-events-auto"
             >
               {template.author.handle}
             </a>

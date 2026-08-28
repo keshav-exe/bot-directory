@@ -52,7 +52,7 @@ export default function WritePage() {
                   href={site.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-foreground hover:underline hover:decoration-foreground/30 hover:underline-offset-4"
+                  className="link-text"
                 >
                   {site.githubRepo}
                 </a>
@@ -83,7 +83,7 @@ export default function WritePage() {
                   href={newPrUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-foreground hover:underline hover:decoration-foreground/30 hover:underline-offset-4"
+                  className="link-text"
                 >
                   open a pull request
                 </a>
@@ -92,7 +92,7 @@ export default function WritePage() {
                   href={contributingUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-foreground hover:underline hover:decoration-foreground/30 hover:underline-offset-4"
+                  className="link-text"
                 >
                   CONTRIBUTING.md
                 </a>
@@ -102,7 +102,7 @@ export default function WritePage() {
                 Need a worked example?{" "}
                 <Link
                   href="/templates/deck-lens"
-                  className="text-foreground hover:underline hover:decoration-foreground/30 hover:underline-offset-4"
+                  className="link-text"
                 >
                   DeckLens is the fill-in to copy
                 </Link>
