@@ -12,7 +12,8 @@
     "typecheck": "tsc --noEmit",
     "template:new": "node scripts/new-template.mjs",
     "template:check": "node scripts/check-templates.mjs",
-    "template:sync": "node scripts/new-template.mjs --sync"
+    "template:sync": "node scripts/new-template.mjs --sync",
+    "template:verify-shares": "node scripts/verify-shares.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",

@@ -3,6 +3,12 @@
 import Link from "next/link"
 import { useMemo } from "react"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
+import {
+  AnimatePresence,
+  LayoutGroup,
+  motion,
+  useReducedMotion,
+} from "motion/react"
 
 import { TemplateCard } from "@/components/template-card"
 import {
@@ -14,6 +20,30 @@ import {
 } from "@/lib/templates"
 import { cn } from "@/lib/utils"
 
+const easeOut = [0.32, 0.72, 0, 1] as const
+const staggerStep = 0.035
+const staggerCap = 12
+
+function enterTransition(index: number, reduce: boolean | null) {
+  if (reduce) return { duration: 0 }
+
+  const stagger = Math.min(index, staggerCap) * staggerStep
+
+  return {
+    layout: { duration: 0.22, ease: easeOut },
+    opacity: { duration: 0.18, ease: easeOut, delay: stagger },
+    scale: { duration: 0.18, ease: easeOut, delay: stagger },
+    y: { duration: 0.22, ease: easeOut, delay: stagger },
+  }
+}
+
+const exitTransition = {
+  layout: { duration: 0.18, ease: easeOut },
+  opacity: { duration: 0.12, ease: easeOut },
+  scale: { duration: 0.12, ease: easeOut },
+  y: { duration: 0.12, ease: easeOut },
+}
+
 export function Directory({
   search,
   onSearchChange,
@@ -21,6 +51,7 @@ export function Directory({
   search: string
   onSearchChange: (value: string) => void
 }) {
+  const reduce = useReducedMotion()
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
@@ -110,16 +141,44 @@ export function Directory({
           </p>
         </div>
       ) : (
-        <ul
-          className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3"
-          role="list"
-        >
-          {results.map((template) => (
-            <li key={template.slug} className="min-w-0">
-              <TemplateCard template={template} />
-            </li>
-          ))}
-        </ul>
+        <LayoutGroup id="template-grid">
+          <motion.ul
+            layout={!reduce}
+            className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3"
+            role="list"
+          >
+            <AnimatePresence initial={false} mode="popLayout">
+              {results.map((template, index) => (
+                <motion.li
+                  key={template.slug}
+                  layout={!reduce ? "position" : false}
+                  custom={index}
+                  variants={{
+                    initial: { opacity: 0, scale: 0.97, y: 10 },
+                    animate: (i: number) => ({
+                      opacity: 1,
+                      scale: 1,
+                      y: 0,
+                      transition: enterTransition(i, reduce),
+                    }),
+                    exit: {
+                      opacity: 0,
+                      scale: 0.97,
+                      y: -6,
+                      transition: reduce ? { duration: 0 } : exitTransition,
+                    },
+                  }}
+                  initial={reduce ? false : "initial"}
+                  animate="animate"
+                  exit="exit"
+                  className="min-w-0"
+                >
+                  <TemplateCard template={template} />
+                </motion.li>
+              ))}
+            </AnimatePresence>
+          </motion.ul>
+        </LayoutGroup>
       )}
     </div>
   )

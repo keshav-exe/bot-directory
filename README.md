@@ -4,7 +4,7 @@ Independent directory of [Grok Bot](https://x.ai/bot) share links. Hosted at [gr
 
 Not affiliated with xAI. Cards open third-party templates on `x.ai/bot/…`. We do not rehost packed configs or copy-paste prompts.
 
-xAI shipped shareable Bot templates in August 2026 ([announcement](https://x.com/bot/status/2093376523919323618)). This site is a public shelf of those links.
+xAI shipped shareable Bot templates in August 2026 ([announcement](https://x.com/bot/status/2093376523919323618)). There is no official public directory API — new listings come from merged PRs with real `x.ai/bot/…` links.
 
 ## Use a listing
 
@@ -46,7 +46,8 @@ pnpm dev
 ```bash
 pnpm template:new -- --help
 pnpm template:check
-pnpm template:sync   # regenerate lib/templates/entries/index.ts
+pnpm template:sync          # regenerate lib/templates/entries/index.ts
+pnpm template:verify-shares # confirm share URLs resolve on x.ai
 pnpm typecheck
 pnpm lint
 pnpm build
@@ -56,7 +57,5 @@ Optional: set `GITHUB_TOKEN` so the nav star count is not GitHub-API rate limite
 
 ## What we will not merge
 
-- Listings without a real `https://x.ai/bot/…` share link
+- Bulk imports scraped from other template directories
 - Secrets, API keys, names, private URLs, chat residue
-- A dump of someone else's machine
-- Prompt-pack scrapes of unrelated directories
