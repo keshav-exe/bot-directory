@@ -21,6 +21,7 @@ import { template as mysterySnack } from "./mystery-snack"
 import { template as raily } from "./raily"
 import { template as receiptScanner } from "./receipt-scanner"
 import { template as rewardsmaxxing } from "./rewardsmaxxing"
+import { template as skydiveEp } from "./skydive-ep"
 import { template as smores } from "./smores"
 import { template as timeKeeper } from "./time-keeper"
 import { template as travelGuru } from "./travel-guru"
@@ -50,6 +51,7 @@ export const templates: Template[] = [
   raily,
   receiptScanner,
   rewardsmaxxing,
+  skydiveEp,
   smores,
   timeKeeper,
   travelGuru,
