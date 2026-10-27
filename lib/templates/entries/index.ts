@@ -17,6 +17,7 @@ import { template as growthDesk } from "./growth-desk"
 import { template as last30Days } from "./last-30-days"
 import { template as life } from "./life"
 import { template as love } from "./love"
+import { template as medicalBillChecker } from "./medical-bill-checker"
 import { template as mysterySnack } from "./mystery-snack"
 import { template as raily } from "./raily"
 import { template as receiptScanner } from "./receipt-scanner"
@@ -46,6 +47,7 @@ export const templates: Template[] = [
   last30Days,
   life,
   love,
+  medicalBillChecker,
   mysterySnack,
   raily,
   receiptScanner,
