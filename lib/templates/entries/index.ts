@@ -3,6 +3,7 @@ import type { Template } from "../types"
 import { template as agentLooper } from "./agent-looper"
 import { template as aiPmOs } from "./ai-pm-os"
 import { template as aiResourceSift } from "./ai-resource-sift"
+import { template as aiVideoProducer } from "./ai-video-producer"
 import { template as aoty } from "./aoty"
 import { template as carmackbot } from "./carmackbot"
 import { template as clipper } from "./clipper"
@@ -32,6 +33,7 @@ export const templates: Template[] = [
   agentLooper,
   aiPmOs,
   aiResourceSift,
+  aiVideoProducer,
   aoty,
   carmackbot,
   clipper,
