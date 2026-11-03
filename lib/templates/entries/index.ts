@@ -1,8 +1,13 @@
 import type { Template } from "../types"
 
 import { template as agentLooper } from "./agent-looper"
+import { template as aiAdDirectorKo } from "./ai-ad-director-ko"
+import { template as aiAnimeDirectorKo } from "./ai-anime-director-ko"
+import { template as aiKidsAnimationKo } from "./ai-kids-animation-ko"
 import { template as aiPmOs } from "./ai-pm-os"
+import { template as aiProductVideoKo } from "./ai-product-video-ko"
 import { template as aiResourceSift } from "./ai-resource-sift"
+import { template as aiVideoBreakdownKo } from "./ai-video-breakdown-ko"
 import { template as aoty } from "./aoty"
 import { template as carmackbot } from "./carmackbot"
 import { template as clipper } from "./clipper"
@@ -30,8 +35,13 @@ import { template as wouldYouRatherCollector } from "./would-you-rather-collecto
 
 export const templates: Template[] = [
   agentLooper,
+  aiAdDirectorKo,
+  aiAnimeDirectorKo,
+  aiKidsAnimationKo,
   aiPmOs,
+  aiProductVideoKo,
   aiResourceSift,
+  aiVideoBreakdownKo,
   aoty,
   carmackbot,
   clipper,
