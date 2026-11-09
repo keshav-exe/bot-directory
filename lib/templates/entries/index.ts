@@ -14,6 +14,7 @@ import { template as floor } from "./floor"
 import { template as friendFinder } from "./friend-finder"
 import { template as george } from "./george"
 import { template as growthDesk } from "./growth-desk"
+import { template as keepersHall } from "./keepers-hall"
 import { template as last30Days } from "./last-30-days"
 import { template as life } from "./life"
 import { template as love } from "./love"
@@ -43,6 +44,7 @@ export const templates: Template[] = [
   friendFinder,
   george,
   growthDesk,
+  keepersHall,
   last30Days,
   life,
   love,
